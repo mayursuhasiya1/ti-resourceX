@@ -1,9 +1,12 @@
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import './Login.css'
 
-import './Home.css'
 
-const Home = () => {
-  // const { error, isPending, data: blogs } = useFetch('http://localhost:8000/blogs');
+const Login = () => {
+
+  const [username, setUserName] = useState();
+  const [password, setPassword] = useState();
+
 
   return (
 <div>
@@ -17,15 +20,15 @@ const Home = () => {
 
        {/*box */}
     <div class="box">
-		<form autocomplete="off">
+		<form autocomplete="off" >
 			<h2>Sign in</h2>
 			<div class="inputBox">
-        <input type="text" required="required" />
+        <input type="text" required="required" onChange={e => setUserName(e.target.value)}/>
 				<span>Userame</span>
 				<i></i>
 			</div>
 			<div class="inputBox">
-        <input type="password" required="required"/>
+        <input type="password" required="required" onChange={e => setPassword(e.target.value)}/>
 
 				<span>Password</span>
 				<i></i>
@@ -50,5 +53,6 @@ const Home = () => {
 </div>
   );
 }
- 
-export default Home;
+
+
+export default Login;
