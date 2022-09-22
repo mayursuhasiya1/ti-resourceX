@@ -6,6 +6,7 @@
 .left-part
 {
 	width: 20%;
+	border-style: solid;
 }
 
 .left-top
@@ -22,28 +23,30 @@
   padding: 20px;
 }
 
-/* Scrolling motto  */
-
-#scroll-container 
+/*  motto  */
+/* 
+#motto-container 
 {
-	/* border: 3px solid black; */
+	border: 3px solid black; 
 	border-radius: 5px;
 	overflow: hidden;
 }
 
-#scroll-text
+#motto-text
 {
 	text-align: center;
 	font-size: 10px;
 	color: white;
 	margin-top: 50%;
 	font-weight: 35px;
-}
+} */
 
 /* popout  */
 
 .popout {
 	font-family: Futura, sans-serif;
+	/* font-family: aeonic-regular; */
+
 	font-weight: 600;
 	font-size: 30px;
 	padding: 0px;
@@ -51,6 +54,7 @@
 	padding-top: 20%;
 	padding-bottom: 20%;
 	background-color: rgb(233, 230, 230);
+	border-style: sol;
   }
   @-webkit-keyframes ani {
 	0% {
