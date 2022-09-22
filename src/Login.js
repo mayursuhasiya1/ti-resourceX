@@ -17,10 +17,60 @@ const Login = () => {
    <div className="left-part">
 	 <div className="left-top">
 	    <h1 className="heading">Ti-ResourceX</h1>
-	    
 	 </div>
-	 <span className="motto">Your one stop solution for employee management</span>
-     <a href="https://technoidentity.com/"><img src="tiLogoNew.png" alt="Technoidentity"/></a>
+	 {/* <div id="scroll-container">
+        <div id="scroll-text">
+		 <i>Your One Stop Solution For Employee Management</i>
+		</div>
+    </div> */}
+
+	<p className="popout">
+	  <span>Y</span>
+	  <span>O</span>
+	  <span>U</span>
+	  <span>R</span> <br />
+	  <span>O</span>
+	  <span>N</span>
+	  <span>E</span><br />
+	  <span>S</span>
+	  <span>T</span>
+	  <span>E</span>
+	  <span>P</span> <br />
+	  <span>S</span>
+	  <span>O</span>
+	  <span>L</span>
+	  <span>U</span>
+	  <span>T</span>
+	  <span>I</span>
+	  <span>O</span>
+	  <span>N</span> <br /> 
+	  <span>F</span>
+	  <span>O</span>
+	  <span>R</span> <br />
+	  <span>E</span>
+	  <span>M</span>
+	  <span>P</span>
+	  <span>L</span>
+	  <span>O</span>
+	  <span>Y</span>
+	  <span>E</span>
+	  <span>E</span> <br />
+	  <span>M</span>
+	  <span>A</span>
+	  <span>N</span>
+	  <span>A</span>
+	  <span>G</span>
+	  <span>E</span>
+	  <span>M</span>
+	  <span>E</span>
+	  <span>N</span>
+	  <span>T</span>
+	</p>
+	
+	 {/* <span className="motto"></span> */}
+     <div className="ti-logo">
+	    <a href="https://technoidentity.com/"><img src="tiLogoNew.png" alt="Technoidentity"/></a>
+	 </div>
    </div>
 
    {/* right portion */}
@@ -58,6 +108,9 @@ const Login = () => {
   </div>
 {/* signin portion end*/}
  </div>
+ {/* <footer id="footer">
+	THis is footer
+ </footer> */}
         
 </div>
   );

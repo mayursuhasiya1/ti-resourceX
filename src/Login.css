@@ -11,7 +11,8 @@
 .left-top
 {
 	border-style: solid;
-	
+	color: white;
+	background-color: #28292d;
 }
 
 .heading
@@ -21,16 +22,110 @@
   padding: 20px;
 }
 
-.motto
+/* Scrolling motto  */
+
+#scroll-container 
 {
-   text-align: center;
-   font-size: 15px;
-   margin-left: 5px;
+	/* border: 3px solid black; */
+	border-radius: 5px;
+	overflow: hidden;
 }
 
-.left-part img
+#scroll-text
 {
-  margin-top: 145%;
+	text-align: center;
+	font-size: 10px;
+	color: white;
+	margin-top: 50%;
+	font-weight: 35px;
+}
+
+/* popout  */
+
+.popout {
+	font-family: Futura, sans-serif;
+	font-weight: 600;
+	font-size: 30px;
+	padding: 0px;
+	text-align: center;
+	padding-top: 20%;
+	padding-bottom: 20%;
+	background-color: rgb(233, 230, 230);
+  }
+  @-webkit-keyframes ani {
+	0% {
+	  transform: translate3d(0, 0, 0);
+	  text-shadow: 0em 0em 0 lightblue;
+	  color: black;
+	}
+	30% {
+	  transform: translate3d(0, 0, 0);
+	  text-shadow: 0em 0em 0 lightblue;
+	  color: black;
+	}
+	70% {
+	  transform: translate3d(0.08em, -0.08em, 0);
+	  text-shadow: -0.08em 0.08em lightblue;
+	  color: black;
+	}
+	100% {
+	  transform: translate3d(0.08em, -0.08em, 0);
+	  text-shadow: -0.08em 0.08em lightblue;
+	  color: black;
+	}
+  }
+  @keyframes ani {
+	0% {
+	  transform: translate3d(0, 0, 0);
+	  text-shadow: 0em 0em 0 rgb(79, 138, 157);
+	  color: black;
+	}
+	30% {
+	  transform: translate3d(0, 0, 0);
+	  text-shadow: 0em 0em 0 lightblue;
+	  color: black;
+	}
+	70% {
+	  transform: translate3d(0.08em, -0.08em, 0);
+	  text-shadow: -0.08em 0.08em lightblue;
+	  color: black;
+	}
+	100% {
+	  transform: translate3d(0.08em, -0.08em, 0);
+	  text-shadow: -0.08em 0.08em rgb(217, 255, 112);
+	  color: black;
+	}
+  }
+  .popout span {
+	position: relative;
+	display: inline-block;
+	-webkit-animation: ani 1s infinite alternate cubic-bezier(0.86, 0, 0.07, 1);
+			animation: ani 1s infinite alternate cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  .popout span:nth-last-child(1n) {
+	-webkit-animation-delay: -0.1666666667s;
+			animation-delay: -0.1666666667s;
+  }
+  .popout span:nth-last-child(2n) {
+	-webkit-animation-delay: -0.3333333333s;
+			animation-delay: -0.3333333333s;
+  }
+  .popout span:nth-last-child(3n) {
+	-webkit-animation-delay: -0.5s;
+			animation-delay: -0.5s;
+  }
+
+  
+/* TI logo */
+
+.ti-logo 
+{
+	border-style: solid;
+}
+
+.ti-logo img
+{
+  margin-top: 15%;
   float: left;
   height: 200px;
   margin-left: 40px;
@@ -49,7 +144,7 @@
 body 
 {
 
-  background-color: #e7dddd;
+  background-color: #7e9cbb;
 
 }
 
@@ -284,4 +379,13 @@ input[type="submit"]:active
 
 .google_logo a:hover {
 	color: #23a6d5;
+  }
+
+  /* footer */
+
+  #footer
+  {
+	background-color: rgb(82, 71, 71);
+	border-style: solid;
+	height: 50px;
   }
