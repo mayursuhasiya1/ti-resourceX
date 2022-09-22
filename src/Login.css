@@ -125,6 +125,7 @@
 .ti-logo 
 {
 	border-style: solid;
+	position: static;
 }
 
 .ti-logo img
@@ -313,33 +314,6 @@ input[type="submit"]:active
 }
 
 
-
-
-
-
-/* dynamic page  */
-
-@media only screen and (min-width: 00px) {
-  .box {
-    margin-top: 10%;  
-  }
-}
-
-@media only screen and (max-width: 600px) {
-	
-	.body
-	{
-		display: flex;
-	}
-	
-	.signin-portion {
-	  margin: 20%;  
-	}
-
-  }
-
-
-
 /* right part   */
 .right-part
 {
@@ -393,3 +367,17 @@ input[type="submit"]:active
 	border-style: solid;
 	height: 50px;
   }
+
+
+  /* dynamic page  */
+
+  @media only screen and (max-width: 400px)  {
+	.main
+	{
+		display: flex;
+		flex-direction: row;
+		background-color: white;
+	}
+  }
+  
+  
