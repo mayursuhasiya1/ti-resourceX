@@ -1,7 +1,6 @@
 {
   "name": "TI_ResourceX",
   "version": "0.1.0",
-  "homepage" : "103.242.116.107:8080",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",

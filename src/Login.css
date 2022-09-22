@@ -48,11 +48,11 @@
 	/* font-family: aeonic-regular; */
 
 	font-weight: 600;
-	font-size: 30px;
+	font-size: 20px;
 	padding: 0px;
 	text-align: center;
-	padding-top: 20%;
-	padding-bottom: 20%;
+	padding-top: 25%;
+	padding-bottom: 25%;
 	background-color: rgb(233, 230, 230);
 	border-style: sol;
   }
@@ -124,15 +124,16 @@
 
 .ti-logo 
 {
-	border-style: solid;
 }
 
 .ti-logo img
 {
-  margin-top: 15%;
-  float: left;
-  height: 200px;
-  margin-left: 40px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 150px;
+  margin-top: 25%
+
 }
 
 /* login box */
