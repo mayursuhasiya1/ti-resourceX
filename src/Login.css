@@ -1,4 +1,42 @@
-/* login details  css */
+.main
+{
+	display: flex;
+}
+
+.left-part
+{
+	width: 20%;
+}
+
+.left-top
+{
+	border-style: solid;
+	
+}
+
+.heading
+{
+  text-align: center;
+  font-family: aeonic-regular;
+  padding: 20px;
+}
+
+.motto
+{
+   text-align: center;
+   font-size: 15px;
+   margin-left: 5px;
+}
+
+.left-part img
+{
+  margin-top: 145%;
+  float: left;
+  height: 200px;
+  margin-left: 40px;
+}
+
+/* login box */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 *
 {
@@ -10,10 +48,7 @@
 
 body 
 {
-   justify-content: center;
-   align-items: center;
-  /* min-height: 100vh; */
-  /* background: rgb(7, 7, 7); */
+
   background-color: #e7dddd;
 
 }
@@ -180,27 +215,8 @@ input[type="submit"]:active
 
 
 
-/* main app div css */
-.app-content
-{
-  display: flex;
-  flex-direction: row;
-}
 
 
-/* logo  */
-.logo
-{
-	width: 20%;
-}
-
-.logo img
-{
-  margin-top: 190%;
-  float: left;
-  height: 200px;
-  margin-left: 40px;
-}
 
 /* dynamic page  */
 
@@ -225,8 +241,8 @@ input[type="submit"]:active
 
 
 
-/* sign in box   */
-.signin-portion
+/* right part   */
+.right-part
 {
 	float: right;
 	width: 80%;
