@@ -1,7 +1,7 @@
 {
-  "name": "TI_ResourceX",
+  "name": "ti-resource-x",
   "version": "0.1.0",
-  "homepage" : "103.242.116.107:8080",
+  "homepage": "login",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
@@ -14,7 +14,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=8080 react-scripts start", 
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

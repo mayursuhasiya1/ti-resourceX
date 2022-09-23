@@ -48,7 +48,7 @@
 	/* font-family: aeonic-regular; */
 
 	font-weight: 600;
-	font-size: 30px;
+	font-size: 20px;
 	padding: 0px;
 	text-align: center;
 	padding-top: 20%;
@@ -125,14 +125,16 @@
 .ti-logo 
 {
 	border-style: solid;
-	position: static;
+	align-items: center;
+	align-self: center;
+	align-content: center;
 }
 
 .ti-logo img
 {
   margin-top: 15%;
   float: left;
-  height: 200px;
+  height: 150px;
   margin-left: 40px;
 }
 
@@ -163,6 +165,7 @@ body
 	background: #1c1c1c;
 	border-radius: 8px;
 	overflow: hidden;
+	margin-top: 15%;
 }
 .box::before 
 {
@@ -202,6 +205,7 @@ body
 		transform: rotate(360deg);
 	}
 }
+
 form 
 {
 	position: absolute;
@@ -369,14 +373,40 @@ input[type="submit"]:active
   }
 
 
-  /* dynamic page  */
 
-  @media only screen and (max-width: 400px)  {
+
+
+  /* mobile version*/
+
+  @media only screen and (max-width: 600px)  {
 	.main
 	{
 		display: flex;
-		flex-direction: row;
-		background-color: white;
+		flex-direction: column;
+	    
+	}
+
+	.heading
+	{
+		padding: 20px;
+        color: white;
+		
+	}
+
+	.left-top
+	{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.left-part
+	{
+		width: 30%;
+	}
+
+	.right-part
+	{
+		width: 70%;
 	}
   }
   
