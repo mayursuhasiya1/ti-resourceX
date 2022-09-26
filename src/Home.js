@@ -14,8 +14,8 @@ const Home = () => {
       
  <div class="justify-center ">
     <div class="flex items-center justify-between h-24 text-white bg-gray-400 shadow-md">     
-        <a href="https://technoidentity.com/"><img class="h-24 py-2 pr-4 ml-8" src="tiLogoNew.png"></img></a>
-        <h1 className="heading text-4xl mr-24 text-black font-bold ">TI-ResourceX</h1>
+        <a href="https://technoidentity.com/"><img class="h-12 py-2 pr-4 ml-8 sm:h-24" src="tiLogoNew.png"></img></a>
+        <h1 className="heading text-2xl text-black font-bold sm:text-4xl mr-24">TI-ResourceX</h1>
         <div class="flex flex-col px-4">
             {/* <p class="text-2xl font-semibold uppercase">19 Oct 2021</p> */}
         </div>
@@ -24,7 +24,7 @@ const Home = () => {
      
              {/*scrolling text  */}
         <div id='scroll-container' className='bg-black'>
-           <p className=" text-center text-xl text-white" id='scroll-text'>Your One Stop Solution For Employee Management</p>
+           <p className=" text-center text-xl text-white" id='scroll-text'>One Stop Solution For Employee Management</p>
         </div>
 
 
