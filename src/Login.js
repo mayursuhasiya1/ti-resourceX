@@ -66,7 +66,7 @@ const Login = () => {
 
          {/* Ti logo */}
      <div className="ti-logo  ">
-	    <a href="https://technoidentity.com/"><img src="tiLogoNew.png" alt="Technoidentity" className="mt-10"/></a>
+	    <a href="https://technoidentity.com/"><img src="tiLogoNew.png" alt="Technoidentity" className=""/></a>
 	 </div>
    </div>
 
