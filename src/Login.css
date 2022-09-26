@@ -122,20 +122,27 @@
   
 /* TI logo */
 
-.ti-logo 
+.ti-logo
 {
+	padding: 0;
+    margin: 0;
+	
 }
 
 .ti-logo img
 {
-  display: block;
+  /* display: block; */
   margin-left: auto;
   margin-right: auto;
   height: 150px;
-  margin-top: 25%
+  
 
 }
 
+html, body
+{
+    height: 100%;
+}
 /* login box */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 *
@@ -202,6 +209,7 @@ body
 		transform: rotate(360deg);
 	}
 }
+
 form 
 {
 	position: absolute;
@@ -219,6 +227,7 @@ h2
 	font-weight: 500;
 	text-align: center;
 	letter-spacing: 0.1em;
+
 }
 .inputBox 
 {
@@ -294,19 +303,20 @@ h2
 .links a:hover, 
 .links a:nth-child(2)
 {
-	color: #45f3ff;
+	color: #46edf9;
 }
 input[type="submit"]
 {
 	border: none;
 	outline: none;
 	padding: 11px 25px;
-	background: #86f5ff;
+	/* background: #86f5ff; */
 	cursor: pointer;
 	border-radius: 4px;
 	font-weight: 600;
 	width: 100px;
 	margin-top: 10px;
+	color: white;
 }
 input[type="submit"]:active 
 {
@@ -321,9 +331,7 @@ input[type="submit"]:active
 /* dynamic page  */
 
 @media only screen and (min-width: 00px) {
-  .box {
-    margin-top: 10%;  
-  }
+
 }
 
 @media only screen and (max-width: 600px) {
@@ -365,6 +373,9 @@ input[type="submit"]:active
 }
 
 /* google login logo */
+
+
+
 .google_logo a
 {
    margin-left: 170px;
@@ -378,8 +389,9 @@ input[type="submit"]:active
 .google_logo img
 {
 	margin-left: 5px;
-	width: 30px;
-	height: 30px;
+	width: 18px;
+	height: 18px;
+	margin-top: 3px;
 }
 
 .google_logo a:hover {

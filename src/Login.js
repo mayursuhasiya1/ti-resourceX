@@ -16,15 +16,11 @@ const Login = () => {
 	{/* left portion */}
    <div className="left-part">
 	 <div className="left-top">
-	    <h1 className="heading">Ti-ResourceX</h1>
+	    <h1 className="heading text-3xl	">Ti-ResourceX</h1>
 	 </div>
-	 {/* <div id="scroll-container">
-        <div id="scroll-text">
-		 <i>Your One Stop Solution For Employee Management</i>
-		</div>
-    </div> */}
 
-	<p className="popout">
+	 <div>
+	  <p className="popout">
 	  <span>Y</span>
 	  <span>O</span>
 	  <span>U</span>
@@ -66,12 +62,16 @@ const Login = () => {
 	  <span>N</span>
 	  <span>T</span>
 	</p>
-	
-	 {/* <span className="motto"></span> */}
-     <div className="ti-logo">
-	    <a href="https://technoidentity.com/"><img src="tiLogoNew.png" alt="Technoidentity"/></a>
+	</div>
+
+         {/* Ti logo */}
+     <div className="ti-logo  ">
+	    <a href="https://technoidentity.com/"><img src="tiLogoNew.png" alt="Technoidentity" className="mt-10"/></a>
 	 </div>
    </div>
+
+
+
 
    {/* right portion */}
      {/* sign in box */}
@@ -80,7 +80,7 @@ const Login = () => {
 {/*box */}
 <div class="box">
  <form autocomplete="off" >
-	 <h2>Sign in</h2>
+	 <h2 className=" py-3 text-2xl"> Sign in</h2>
 	 <div class="inputBox">
  <input type="text" required="required" onChange={e => setUserName(e.target.value)}/>
 		 <span>Userame</span>
@@ -96,10 +96,10 @@ const Login = () => {
 		 <a href="#">Forgot Password ?</a>
 		 <a href="#">Signup</a>
 	 </div>
-	 <input type="submit" value="Login"/>
+	 <input className="bg-blue-500" type="submit" value="Login"/>
 	 
 	 <div className="google_logo"> 
-	   <a href="">Sign in with<img src="google.png" alt="" /></a>
+	   <a href="#">Sign in with<img src="google.png" alt="" /></a>
 	 </div> 
    </form>
  
@@ -108,9 +108,9 @@ const Login = () => {
   </div>
 {/* signin portion end*/}
  </div>
- {/* <footer id="footer">
-	THis is footer
- </footer> */}
+{/* footer */}
+<footer></footer>
+ 
         
 </div>
   );

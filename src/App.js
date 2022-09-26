@@ -3,6 +3,9 @@
 import Login from './Login';
 import Dashboard from './Dashboard';
 import NotFound from "./NotFound"
+import Mobile from './Mobile';
+import Home from './Home';
+
 import { BrowserRouter as Router, Route, Switch  } from 'react-router-dom';
 import React, { useState } from 'react';
 
@@ -17,6 +20,7 @@ function getToken() {
   return userToken?.token
 }
 
+
 function App() {
   const token = getToken();
 
@@ -24,8 +28,14 @@ function App() {
     <div className="wrapper">
       <Router>
         <Switch>
-        <Route path="/">
-            <Login />
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/login">
+            <Login/>
+          </Route>
+          <Route exact path="/mobile">
+            <Mobile />
           </Route>
           <Route path="/dashboard">
             <Dashboard />
