@@ -13,9 +13,9 @@ const Home = () => {
     <div >
       
  <div class="justify-center ">
-    <div class="flex items-center justify-between h-24 text-white bg-gray-400 shadow-md">     
-        <a href="https://technoidentity.com/"><img class="h-12 py-2 pr-4 ml-8 sm:h-24" src="tiLogoNew.png"></img></a>
-        <h1 className="heading text-2xl text-black font-bold sm:text-4xl mr-24">TI-ResourceX</h1>
+    <div class="flex items-center justify-between h-12 text-white bg-gray-400 shadow-md sm:h-20">     
+        <a href="https://technoidentity.com/"><img class="h-14 py-2 pr-4 ml-8 sm:h-24" src="tiLogoNew.png"></img></a>
+        <h1 className="heading text-xl text-black font-bold sm:text-4xl mr-24">TI-ResourceX</h1>
         <div class="flex flex-col px-4">
             {/* <p class="text-2xl font-semibold uppercase">19 Oct 2021</p> */}
         </div>
@@ -23,7 +23,7 @@ const Home = () => {
 </div>
      
              {/*scrolling text  */}
-        <div id='scroll-container' className='bg-black'>
+        <div id='scroll-container' className='bg-black sm:mb-10'>
            <p className=" text-center text-xl text-white" id='scroll-text'>One Stop Solution For Employee Management</p>
         </div>
 
@@ -31,17 +31,17 @@ const Home = () => {
 {/* logo and box */}
 
 
-    <div className="box">
+<div className="box mt-14">
     <form autocomplete="off" >
-	 <h2 className=" text-2xl"> Sign in</h2>
-	 <div class="inputBox">
- <input type="text" required="required" onChange={e => setUserName(e.target.value)}/>
+	 <h2 className="text-2xl"> Sign in</h2>
+	 
+     <div class="inputBox">
+         <input type="text" required="required" onChange={e => setUserName(e.target.value)}/>
 		 <span>Userame</span>
 		 <i></i>
 	 </div>
 	 <div class="inputBox">
- <input type="password" required="required" onChange={e => setPassword(e.target.value)}/>
-
+         <input type="password" required="required" onChange={e => setPassword(e.target.value)}/>
 		 <span>Password</span>
 		 <i></i>
 	 </div>
@@ -55,8 +55,6 @@ const Home = () => {
 	   <a href="#">Sign in with<img src="google.png" alt="" /></a>
 	 </div> 
    </form>
-    
-
 </div>
 
 
@@ -64,7 +62,7 @@ const Home = () => {
 
 {/* footer */}
 
-<footer class="text-center lg:text-left bg-black text-gray-600 mt-10">
+<footer class="text-center lg:text-left bg-black text-gray-600 sm:mt-10">
   <div class="flex justify-center items-center lg:justify-between p-6 border-b border-gray-300">
     <div class="mr-12 hidden lg:block">
       <span>Get connected with us on social networks:</span>
@@ -141,7 +139,7 @@ const Home = () => {
               d="M488.6 250.2L392 214V105.5c0-15-9.3-28.4-23.4-33.7l-100-37.5c-8.1-3.1-17.1-3.1-25.3 0l-100 37.5c-14.1 5.3-23.4 18.7-23.4 33.7V214l-96.6 36.2C9.3 255.5 0 268.9 0 283.9V394c0 13.6 7.7 26.1 19.9 32.2l100 50c10.1 5.1 22.1 5.1 32.2 0l103.9-52 103.9 52c10.1 5.1 22.1 5.1 32.2 0l100-50c12.2-6.1 19.9-18.6 19.9-32.2V283.9c0-15-9.3-28.4-23.4-33.7zM358 214.8l-85 31.9v-68.2l85-37v73.3zM154 104.1l102-38.2 102 38.2v.6l-102 41.4-102-41.4v-.6zm84 291.1l-85 42.5v-79.1l85-38.8v75.4zm0-112l-102 41.4-102-41.4v-.6l102-38.2 102 38.2v.6zm240 112l-85 42.5v-79.1l85-38.8v75.4zm0-112l-102 41.4-102-41.4v-.6l102-38.2 102 38.2v.6z">
             </path>
           </svg>
-          Tailwind ELEMENTS
+          Know More
         </h6>
         <p>
           Here you can use rows and columns to organize your footer content. Lorem ipsum dolor
@@ -228,9 +226,9 @@ const Home = () => {
       </div>
     </div>
   </div>
-  <div class="text-center p-6 bg-gray-200">
-    <span>© 2022 Copyright:</span>
-    <a class="text-gray-600 font-semibold" href="https://tailwind-elements.com/">TechnoIdentity</a>
+  <div class="text-center p-6 bg-gray-600">
+    <span className='text-black'>© 2022 Copyright:</span>
+    <a class="text-black font-semibold" href="https://tailwind-elements.com/"> TechnoIdentity</a>
   </div>
 </footer>
 
