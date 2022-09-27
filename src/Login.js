@@ -1,100 +1,44 @@
-import { useEffect, useState } from "react";
-import './Login.css'
+import React from 'react'
+import Footer from './Footer';
+import Header from './Header'
 
+import { useState } from 'react';
 
-const Login = () => {
+import './Home.css';
+import './Login.css';
 
-  const [username, setUserName] = useState();
-  const [password, setPassword] = useState();
+const Home = () => {
 
+    const [username, setUserName] = useState();
+    const [password, setPassword] = useState();
 
   return (
-<div>
+    <div >
+      
+     {/* header */}
 
- <div className="main">
+  <Header/>
 
-	{/* left portion */}
-   <div className="left-part">
-	 <div className="left-top">
-	    <h1 className="heading text-3xl	">Ti-ResourceX</h1>
-	 </div>
-
-	 <div>
-	  <p className="popout">
-	  <span>Y</span>
-	  <span>O</span>
-	  <span>U</span>
-	  <span>R</span> <br />
-	  <span>O</span>
-	  <span>N</span>
-	  <span>E</span><br />
-	  <span>S</span>
-	  <span>T</span>
-	  <span>E</span>
-	  <span>P</span> <br />
-	  <span>S</span>
-	  <span>O</span>
-	  <span>L</span>
-	  <span>U</span>
-	  <span>T</span>
-	  <span>I</span>
-	  <span>O</span>
-	  <span>N</span> <br /> 
-	  <span>F</span>
-	  <span>O</span>
-	  <span>R</span> <br />
-	  <span>E</span>
-	  <span>M</span>
-	  <span>P</span>
-	  <span>L</span>
-	  <span>O</span>
-	  <span>Y</span>
-	  <span>E</span>
-	  <span>E</span> <br />
-	  <span>M</span>
-	  <span>A</span>
-	  <span>N</span>
-	  <span>A</span>
-	  <span>G</span>
-	  <span>E</span>
-	  <span>M</span>
-	  <span>E</span>
-	  <span>N</span>
-	  <span>T</span>
-	</p>
-	</div>
-
-         {/* Ti logo */}
-     <div className="ti-logo  ">
-	    <a href="https://technoidentity.com/"><img src="tiLogoNew.png" alt="Technoidentity" className=""/></a>
-	 </div>
-   </div>
+{/* logo and box */}
 
 
-
-
-   {/* right portion */}
-     {/* sign in box */}
-  <div className="right-part">
-
-{/*box */}
-<div class="box">
- <form autocomplete="off" >
-	 <h2 className=" py-3 text-2xl"> Sign in</h2>
-	 <div class="inputBox">
- <input type="text" required="required" onChange={e => setUserName(e.target.value)}/>
+<div className="box">
+    <form autocomplete="off" >
+	 <h2 className="text-2xl"> Sign in</h2>
+	 
+     <div class="inputBox">
+         <input type="text" required="required" onChange={e => setUserName(e.target.value)}/>
 		 <span>Userame</span>
 		 <i></i>
 	 </div>
 	 <div class="inputBox">
- <input type="password" required="required" onChange={e => setPassword(e.target.value)}/>
-
+         <input type="password" required="required" onChange={e => setPassword(e.target.value)}/>
 		 <span>Password</span>
 		 <i></i>
 	 </div>
 	 <div class="links">
 		 <a href="#">Forgot Password ?</a>
-		 <a href="#">Signup</a>
+		 <a href="./signup">Signup</a>
 	 </div>
 	 <input className="bg-blue-500" type="submit" value="Login"/>
 	 
@@ -102,19 +46,15 @@ const Login = () => {
 	   <a href="#">Sign in with<img src="google.png" alt="" /></a>
 	 </div> 
    </form>
- 
-   </div>
-
-  </div>
-{/* signin portion end*/}
- </div>
-{/* footer */}
-<footer></footer>
- 
-        
 </div>
-  );
+
+
+
+
+{/* footer */}
+     <Footer/>
+    </div>
+  )
 }
 
-
-export default Login;
+export default Home

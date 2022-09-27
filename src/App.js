@@ -3,8 +3,9 @@
 import Login from './Login';
 import Dashboard from './Dashboard';
 import NotFound from "./NotFound"
-import Mobile from './Mobile';
 import Home from './Home';
+import Signup from './Signup';
+
 
 import { BrowserRouter as Router, Route, Switch  } from 'react-router-dom';
 import React, { useState } from 'react';
@@ -34,8 +35,8 @@ function App() {
           <Route exact path="/login">
             <Login/>
           </Route>
-          <Route exact path="/mobile">
-            <Mobile />
+          <Route exact path="/signup">
+            <Signup />
           </Route>
           <Route path="/dashboard">
             <Dashboard />
