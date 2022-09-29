@@ -5,6 +5,7 @@ import Dashboard from './Dashboard';
 import NotFound from "./NotFound"
 import Home from './Home';
 import Signup from './Signup';
+import Register from './Register';
 
 
 import { BrowserRouter as Router, Route, Switch  } from 'react-router-dom';
@@ -37,6 +38,9 @@ function App() {
           </Route>
           <Route exact path="/signup">
             <Signup />
+          </Route>
+          <Route exact path="/register">
+            <Register />
           </Route>
           <Route path="/dashboard">
             <Dashboard />
