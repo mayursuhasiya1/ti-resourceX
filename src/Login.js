@@ -1,16 +1,15 @@
 import React from 'react'
 import Footer from './Footer';
 import Header from './Header'
-import { useRef, useState, useEffect, useContext } from "react";
+import { useRef, useState, useEffect } from "react";
 import axios from './api/axios';
 
+import { Link,useNavigate,useLocation } from 'react-router-dom';
 // authcontext api
-import authContext from "./context/AuthProvider";
+import useAuth from './hooks/useAuth';
 
-
-import './Home.css';
-import './Login.css';
-import AuthContext from './context/AuthProvider';
+import './css/Home.css';
+import './css/Login.css';
 
 
 // login url
@@ -20,15 +19,18 @@ const LOGIN_URL = "/sign-in";
 // login function
 const Login = () => {
 
-  const { setAuth } = useContext(AuthContext);
+  const { setAuth } = useAuth();
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
 	// variables
   const userRef = useRef();
   const errRef = useRef();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errMsg, setErrMsg] = useState("");
-  const [success, setSuccess] = useState(false);
-
 
   //refresh
   useEffect( () => {
@@ -37,18 +39,14 @@ const Login = () => {
 
   useEffect(() => {
     setErrMsg("");
-	// console.log(user);
-	// console.log(pwd);
   }, [email, password]);
 
 
-    // handle submit
-    
+    // handle submit function
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-
 		
       const response = await axios.post(
         LOGIN_URL,
@@ -66,9 +64,12 @@ const Login = () => {
 
 	  setAuth({ email, password, accessToken });
 
+	  // console.log(accessToken);
+
       setEmail("");
       setPassword("");
-      setSuccess(true);
+      // replaces success message
+      navigate(from, {replace: true});
 
     } catch (err) {
       if (!err?.response) {

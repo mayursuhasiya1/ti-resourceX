@@ -6,51 +6,54 @@ import NotFound from "./NotFound"
 import Home from './Home';
 import Signup from './Signup';
 import Register from './Register';
+import Unauthorized from './Unauthorized';
+import RequireAuth from './RequireAuth';
 
-
-import { BrowserRouter as Router, Route, Switch  } from 'react-router-dom';
+import {  Route, Routes  } from 'react-router-dom';
 import React, { useState } from 'react';
+import Layout from './Layout';
 
-
-function setToken(userToken) {
-  sessionStorage.setItem('token', JSON.stringify(userToken));
-}
-
-function getToken() {
-  const tokenString = sessionStorage.getItem('token');
-  const userToken = JSON.parse(tokenString);
-  return userToken?.token
-}
 
 
 function App() {
-  const token = getToken();
+  
 
   return (
-    <div className="wrapper">
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Home />
+    
+       <Routes>
+          <Route path="/" element={<Layout />}>
+            {/* public routes */}
+             <Route path="login" element={<Login/>}/>
+             {/* <Route path="register" element={<Register/>}/> */}
+             <Route path="signup" element={<Signup/>}/>
+             <Route path="unauthorized" element={<Unauthorized/>}/>
+
+
+          {/* we want to protecte this routes */}
+          {/* it will require authorisation to access the dashboard and other authorised pages */}
+          
+          {/* admin role */}
+          <Route element={<RequireAuth allowedRoles = {[]}/>}>
+             <Route path="/" element={<Dashboard/>}/>
           </Route>
-          <Route exact path="/login">
-            <Login/>
+
+          {/* admin */}
+          <Route element={<RequireAuth allowedRoles = {[]}/>}>
+             <Route path='admin'/>
           </Route>
-          <Route exact path="/signup">
-            <Signup />
+
+          {/* developer */}
+          <Route element={<RequireAuth allowedRoles = {[]}/>}>
+             <Route path='developer'/>
           </Route>
-          <Route exact path="/register">
-            <Register />
-          </Route>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
-          <Route path="*">
-            <NotFound />
-          </Route>
-        </Switch>
-      </Router>
-    </div>
+
+
+          {/* not found route: 404*/}
+          <Route path="*" element={<NotFound/>}/>
+        
+        </Route>
+
+       </Routes>
   );
 }
 
