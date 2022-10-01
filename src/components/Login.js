@@ -2,14 +2,14 @@ import React from 'react'
 import Footer from './Footer';
 import Header from './Header'
 import { useRef, useState, useEffect } from "react";
-import axios from './api/axios';
+import axios from '../api/axios';
 
 import { Link,useNavigate,useLocation } from 'react-router-dom';
 // authcontext api
-import useAuth from './hooks/useAuth';
+import useAuth from '../hooks/useAuth';
 
-import './css/Home.css';
-import './css/Login.css';
+import '../css/Home.css';
+import '../css/Login.css';
 
 
 // login url
@@ -96,7 +96,7 @@ const Login = () => {
 
 
 <div className="box">
-    <form autocomplete="off" onSubmit={handleSubmit} >
+    <form autoComplete="off" onSubmit={handleSubmit} >
 	 <h2 className="text-2xl"> Sign in</h2>
 	 
      <div class="inputBox">

@@ -1,59 +1,65 @@
 
 // import  from './landingPage'
-import Login from './Login';
-import Dashboard from './Dashboard';
-import NotFound from "./NotFound"
-import Home from './Home';
-import Signup from './Signup';
-import Register from './Register';
-import Unauthorized from './Unauthorized';
-import RequireAuth from './RequireAuth';
+import Login from './components/Login';
+import Dashboard from './components/Dashboard';
+import NotFound from "./components/NotFound"
+import Home from './components/Home';
+import Signup from './components/Signup';
+import Register from './components/Register';
+import Unauthorized from './components/Unauthorized';
+import RequireAuth from './components/RequireAuth';
+import Admin from './components/Admin';
+import Developer from './components/Developer'
+import Layout from './components/Layout';
 
 import {  Route, Routes  } from 'react-router-dom';
 import React, { useState } from 'react';
-import Layout from './Layout';
 
+
+const ROLES = {
+   "Admin": 1,
+   "Employee": 2,
+   "Developer": 3
+}
 
 
 function App() {
   
+   // roleId : 1 => admin
+   // roleId : 2 => Employee
+   // roleId : 3 => Developer
 
   return (
-    
-       <Routes>
-          <Route path="/" element={<Layout />}>
-            {/* public routes */}
-             <Route path="login" element={<Login/>}/>
-             {/* <Route path="register" element={<Register/>}/> */}
-             <Route path="signup" element={<Signup/>}/>
-             <Route path="unauthorized" element={<Unauthorized/>}/>
 
+      <Routes>
+      <Route path="/" element={<Layout />}>
+        {/* public routes */}
+        <Route path="login" element={<Login />} />
+        <Route path="signup" element={<Signup />} />
+        <Route path="unauthorized" element={<Unauthorized />} />
 
-          {/* we want to protecte this routes */}
-          {/* it will require authorisation to access the dashboard and other authorised pages */}
-          
-          {/* admin role */}
-          <Route element={<RequireAuth allowedRoles = {[]}/>}>
-             <Route path="/" element={<Dashboard/>}/>
-          </Route>
-
-          {/* admin */}
-          <Route element={<RequireAuth allowedRoles = {[]}/>}>
-             <Route path='admin'/>
-          </Route>
-
-          {/* developer */}
-          <Route element={<RequireAuth allowedRoles = {[]}/>}>
-             <Route path='developer'/>
-          </Route>
-
-
-          {/* not found route: 404*/}
-          <Route path="*" element={<NotFound/>}/>
-        
+        {/* we want to protect these routes */}
+        <Route element={<RequireAuth />}>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="admin" element={<Admin />} />
         </Route>
 
-       </Routes>
+        {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>      
+          <Route path="/" element={<Home />} />
+          <Route path="admin" element={<Admin />} />
+        </Route>
+
+
+        <Route element={<RequireAuth allowedRoles={[ROLES.Developer]} />}>
+          <Route path="/" element={<Home />} />
+          <Route path="developer" element={<Developer />} />
+        </Route> */}
+
+
+        {/* catch all */}
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 }
 

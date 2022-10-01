@@ -1,12 +1,12 @@
 import React from 'react'
-import './css/Signup.css'
+import '../css/Signup.css'
 import Footer from './Footer'
 import Header from './Header'
 import { useState, useRef, useEffect } from 'react'
 //import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import axios from "./api/axios";
+import axios from "../api/axios";
 
 const Signup = () => {
 

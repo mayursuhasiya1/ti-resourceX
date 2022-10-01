@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState,useRef,useEffect } from 'react';
-import axios from "./api/axios";
+import axios from "../api/axios";
 
 
 
@@ -15,8 +15,6 @@ import { faCheck,faInfoCircle,faLeaf,faTimes } from "@fortawesome/free-solid-svg
 const REGISTER_URL = "/register";
 
 const Register = () => {
-
-    // regex
 
 
 // variables
@@ -70,12 +68,6 @@ useEffect(() => {
 // other imports
 const handleSubmit = async (e) => {
   e.preventDefault();
-  // const v1 = USER_REGEX.test(user);
-  // const v2 = PWD_REGEX.test(pwd);
-  // if (!v1 || !v2) {
-  //   setErrMsg("Invalid Entry");
-  //   return;
-  // }
 
   try {
     const response = await axios.post(
