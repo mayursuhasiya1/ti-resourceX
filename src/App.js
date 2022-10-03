@@ -12,8 +12,16 @@ import Admin from './components/Admin';
 import Developer from './components/Developer'
 import Layout from './components/Layout';
 
+
+// from other team members
+import LandingPage from './components/LandingPage';
+
 import {  Route, Routes  } from 'react-router-dom';
 import React, { useState } from 'react';
+import Organization from './components/Organization';
+import LeaveManagement from './components/LeaveManagement';
+import ProjectManagement from './components/ProjectManagement';
+import LearningDevelopment from './components/LearningDevelopment';
 
 
 const ROLES = {
@@ -40,8 +48,15 @@ function App() {
 
         {/* we want to protect these routes */}
         <Route element={<RequireAuth />}>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="admin" element={<Admin />} />
+          {/* other pages */}
+          <Route path="/orgchart" element={<Organization />} />
+          <Route path="/leavemanagement" element={<LeaveManagement />} />
+          <Route path="/projectmanagement" element={<ProjectManagement />} />
+          <Route path="/learningdevelopment"
+element={<LearningDevelopment />}/>
+
         </Route>
 
         {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>      
