@@ -19,31 +19,31 @@ import Divider from "@mui/material/Divider";
 
 // authorisation
 // route with authorisation requires this imports
-import RequireAuth from './RequireAuth';
+import RequireAuth from "./RequireAuth";
 import AuthContext from "../context/AuthProvider";
 import { Navigate } from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 // authcontext api
-import useAuth from '../hooks/useAuth';
+import useAuth from "../hooks/useAuth";
+import "../App";
+import "../App.css";
+import "../index.css";
+import LeaveManagement from "./LeaveManagement";
 
-
-
-// 
+//
 const drawerWidth = 240;
 
 function LandingPage() {
-
-
   const { setAuth } = useAuth();
 
   const navigate = useNavigate();
 
   const logout = async () => {
-    // if used in more components, this should be in context 
-    // axios to /logout endpoint 
+    // if used in more components, this should be in context
+    // axios to /logout endpoint
     setAuth({});
-    navigate('/login');
-}
+    navigate("/login");
+  };
 
   const { pathname } = useLocation();
   const drawer = (
@@ -118,16 +118,23 @@ function LandingPage() {
         }}
       >
         <Toolbar />
-      <Routes>
-        <Route element={<RequireAuth />}>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/orgchart" element={<Organization />} />
-          <Route path="/leavemanagement" element={<TimeTracker />} />
-          <Route path="/projectmanagement" element={<ProjectManagement />} />
-          <Route path="/learningdevelopment"
-element={<LearningDevelopment />}/>
-         </Route>
-      </Routes>
+        <div className="pages">
+          <Routes>
+            <Route element={<RequireAuth />}>
+              <Route exact path="/" element={<Home />} />
+              <Route path="/orgchart" element={<Organization />} />
+              <Route path="/leavemanagement" element={<LeaveManagement />} />
+              <Route
+                path="/projectmanagement"
+                element={<ProjectManagement />}
+              />
+              <Route
+                path="/learningdevelopment"
+                element={<LearningDevelopment />}
+              />
+            </Route>
+          </Routes>
+        </div>
       </Box>
     </Box>
   );

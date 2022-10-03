@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const ProjectManagement = () => {
-  return (
-    <h1>ProjectManagement</h1>
-  )
-}
+  return <h1>ProjectManagement</h1>;
+};
 
-export default ProjectManagement
+export default ProjectManagement;
