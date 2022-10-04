@@ -1,16 +1,22 @@
 import React from "react";
 import "../css/Signup.css";
 import { useState, useRef, useEffect } from "react";
-
 import axios from "../api/axios";
+
+// react-form
+import { useForm } from "react-hook-form";
 
 // all regex
 const nameRegex = /^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/;
 const pwdRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+const mobRegex = /^[6-9]\d{9}$/;
 
 const Signup = () => {
-  //const USER_REGEX = /^\[A-z\][A-z0-9-_]{3,23}$/;
-  //const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+  const {
+    register,
+    formState: { errors },
+    trigger,
+  } = useForm();
   const REGISTER_URL = "/sign-up";
 
   // fields
@@ -36,6 +42,8 @@ const Signup = () => {
   // validation
   const [validPwd, setValidPwd] = useState(false);
   const [validName, setValidName] = useState(false);
+  const [validMob, setValidMob] = useState(false);
+  const [validAlternateMob, setValidAlternateMob] = useState(false);
 
   // State events
   useEffect(() => {
@@ -64,17 +72,14 @@ const Signup = () => {
   }, [password, confirmPassword]);
 
   useEffect(() => {
-    console.log(firstName);
-    console.log(middleName);
-    console.log(lastName);
-    console.log(gender);
-    console.log(designation);
-    console.log(primaryMobile);
-    console.log(alternativeMobile);
-    console.log(email);
+    // to check mob valid or not
+    setValidMob(mobRegex.test(primaryMobile));
+    setValidAlternateMob(mobRegex.test(alternativeMobile));
+  }, [primaryMobile, alternativeMobile]);
+
+  useEffect(() => {
     console.log(password);
     console.log(confirmPassword);
-    console.log(roleId);
 
     setErrMsg("");
   }, [
@@ -181,13 +186,20 @@ const Signup = () => {
                 {/* for validation */}
                 {userRegistered == true ? (
                   <h1 class="mb-8 text-3xl text-center">
-                    Email is Already Registered
+                    You are Already Registered with this Email
+                    <a href="./signup">
+                      <button class="bg-blue-500 text-white font-bold py-2 px-4 border-b-4 border-blue-700 ml-2 mt-2 hover:border-blue-500 rounded">
+                        Sign up
+                      </button>
+                    </a>
                   </h1>
                 ) : (
                   <h1 class="mb-8 text-3xl text-center">
                     Successfully Signed up!
-                    <a href="/login">
-                      <button className="bg-blue-500">Login</button>
+                    <a href="./login">
+                      <button class="bg-blue-500 text-white font-bold py-2 px-4 border-b-4 border-blue-700 ml-2 mt-2 hover:border-blue-500 rounded">
+                        Log in
+                      </button>
                     </a>
                   </h1>
                 )}
@@ -257,7 +269,13 @@ const Signup = () => {
                       name="email"
                       placeholder="Email"
                     />
+
                     {/*gender */}
+                    {typeof gender == "undefined" ? (
+                      <p className="text-red-600">Select Gender</p>
+                    ) : (
+                      " "
+                    )}
                     <select
                       value={gender}
                       onChange={(e) => setGender(e.target.value)}
@@ -281,13 +299,19 @@ const Signup = () => {
                       id="gender"
                     >
                       <option disabled selected>
-                        Select Gender
+                        Gender
                       </option>
                       <option value="Male">Male</option>
                       <option value="Female">Female</option>
                       <option value="Other">Other</option>
                     </select>
+
                     {/* role id */}
+                    {typeof roleId == "undefined" ? (
+                      <p className="text-red-600">Select Role ID</p>
+                    ) : (
+                      " "
+                    )}
                     <select
                       required
                       value={roleId}
@@ -311,13 +335,19 @@ const Signup = () => {
                       id="roleId"
                     >
                       <option disabled selected>
-                        Select Role ID
+                        Role ID
                       </option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
                     </select>
                     {/* designation */}
+                    {typeof designation == "undefined" ? (
+                      <p className="text-red-600">Select Designation</p>
+                    ) : (
+                      " "
+                    )}
+
                     <select
                       onChange={(e) => setDesignation(e.target.value)}
                       className="form-select appearance-none
@@ -340,13 +370,22 @@ const Signup = () => {
                       id="designation"
                     >
                       <option disabled selected>
-                        Select Designation
+                        Designation
                       </option>
                       <option value="Developer">Developer</option>
                       <option value="Ui developer">UI Develooper</option>
                       <option value="manager">Manager</option>
                     </select>
+
                     {/* mobile number */}
+                    {primaryMobile == "" ? (
+                      <p className="text-red-600">Enter Mobile Number</p>
+                    ) : validMob ? (
+                      " "
+                    ) : (
+                      <p className="text-red-600">Enter Valid Mobile Number</p>
+                    )}
+
                     <input
                       type="tel"
                       required
@@ -372,7 +411,19 @@ const Signup = () => {
                       placeholder="Mobile number"
                       onChange={(e) => setPrimaryMobile(e.target.value)}
                     />
+
                     {/* alternative mobile number */}
+                    {alternativeMobile == "" ? (
+                      <p className="text-black">
+                        Enter Alternative Mobile Number
+                      </p>
+                    ) : validAlternateMob ? (
+                      " "
+                    ) : (
+                      <p className="text-red">
+                        Enter Valid Alternative Mobile Number
+                      </p>
+                    )}
                     <input
                       type="tel"
                       autoComplete="off"
@@ -405,7 +456,7 @@ const Signup = () => {
                       Upload Photo
                     </label>
                     <input
-                      class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                      class="block w-full text-sm text-gray-900 bg-gray-50  border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                       id="profileImage"
                       type="file"
                     />
@@ -415,8 +466,7 @@ const Signup = () => {
                       type="password"
                       id="password"
                       onChange={(e) => setPassword(e.target.value)}
-                      //    aria-invalid={validPwd ? "false" : "true"}
-                      //   aria-describedby="pwdnote"
+                      autoComplete="off"
                       required
                       className="block border border-grey-light w-full p-3 rounded mb-4"
                       name="password"
@@ -426,6 +476,7 @@ const Signup = () => {
                     <input
                       type="password"
                       required
+                      autoComplete="off"
                       id="confirmPassword"
                       className="block border border-grey-light w-full p-3 rounded mb-4"
                       onChange={(e) => setConfirmPassword(e.target.value)}
@@ -476,9 +527,18 @@ const Signup = () => {
                     <button
                       type="submit"
                       disabled={
-                        !validName || !validPwd || !validMatch ? true : false
+                        (alternativeMobile != "" && !validAlternateMob) ||
+                        !validMob ||
+                        typeof designation == "undefined" ||
+                        typeof gender == "undefined" ||
+                        typeof roleId == "undefined" ||
+                        !validName ||
+                        !validPwd ||
+                        !validMatch
+                          ? true
+                          : false
                       }
-                      className="w-full text-center py-3 rounded bg-black text-white hover:bg-yellow focus:outline-none my-1"
+                      className="w-full text-center py-3 rounded bg-blue-600 text-white hover:bg-blue-800 focus:outline-none my-1"
                     >
                       Create Account
                     </button>

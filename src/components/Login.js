@@ -28,6 +28,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errMsg, setErrMsg] = useState("");
+  const [success, setSucess] = useState(true);
 
   //refresh
   useEffect(() => {}, []);
@@ -50,7 +51,7 @@ const Login = () => {
         }
       );
 
-      console.log(JSON.stringify(response?.data));
+      // console.log(JSON.stringify(response?.data));
 
       const accessToken = response?.data?.accessToken;
       //   const roles = response?.data?.roles;
@@ -61,19 +62,21 @@ const Login = () => {
 
       setEmail("");
       setPassword("");
+
       // replaces success message
       navigate(from, { replace: true });
     } catch (err) {
+      console.log(err);
+
       if (!err?.response) {
         setErrMsg("No Server Response");
       } else if (err.response?.status === 400) {
         setErrMsg("Missing Username or Password");
       } else if (err.response?.status === 401) {
-        setErrMsg("Unauthorized");
+        setErrMsg("Email or password is incorrect");
       } else {
         setErrMsg("Login Failed");
       }
-      errRef.current.focus();
     }
   };
 
@@ -115,7 +118,7 @@ const Login = () => {
             <a href="#">Forgot Password ?</a>
             <a href="./signup">Signup</a>
           </div>
-
+          <h1 className="text-red-500">{errMsg}</h1>
           <input className="bg-blue-500" type="submit" value="Login" />
 
           <div className="google_logo">
