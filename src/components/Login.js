@@ -3,6 +3,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import { useRef, useState, useEffect } from "react";
 import axios from "../api/axios";
+import { axiosPrivate } from "../api/axios";
 
 import { Link, useNavigate, useLocation } from "react-router-dom";
 // authcontext api
@@ -21,6 +22,9 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+
+  //
+  const controller = new AbortController();
 
   // variables
   const userRef = useRef();
@@ -51,14 +55,22 @@ const Login = () => {
         }
       );
 
-      // console.log(JSON.stringify(response?.data));
+      // storing token in local storage
+      window.localStorage.setItem("token", JSON.stringify(response?.data));
+      window.localStorage.setItem("isLoggedIn", true);
+
+      console.log(JSON.stringify(response?.data));
 
       const accessToken = response?.data?.accessToken;
       //   const roles = response?.data?.roles;
 
       setAuth({ email, password, accessToken });
 
-      // console.log(accessToken);
+      // const res1 = await axiosPrivate.get("/users/1", {
+      //   signal: controller.signal,
+      // });
+
+      // console.log(res1.data);
 
       setEmail("");
       setPassword("");
@@ -73,12 +85,18 @@ const Login = () => {
       } else if (err.response?.status === 400) {
         setErrMsg("Missing Username or Password");
       } else if (err.response?.status === 401) {
-        setErrMsg("Email or password is incorrect");
+        setErrMsg("Invalid Email or password");
       } else {
         setErrMsg("Login Failed");
       }
     }
   };
+
+  // const togglePersist = () => {
+  //   setPersist((prev) => !prev);
+  // };
+
+  // useEffect(() => {}, [persist]);
 
   return (
     <div>
@@ -118,14 +136,20 @@ const Login = () => {
             <a href="#">Forgot Password ?</a>
             <a href="./signup">Signup</a>
           </div>
+
           <h1 className="text-red-500">{errMsg}</h1>
           <input className="bg-blue-500" type="submit" value="Login" />
 
-          <div className="google_logo">
-            <a href="#">
-              Sign in with
-              <img src="google.png" alt="" />
-            </a>
+          <div className="google-btn ml-32">
+            <div className="google-icon-wrapper mr-2">
+              <img
+                className="google-icon"
+                src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+              />
+            </div>
+            <p className="btn-text pb-2">
+              <b className="">Sign in with google</b>
+            </p>
           </div>
         </form>
       </div>

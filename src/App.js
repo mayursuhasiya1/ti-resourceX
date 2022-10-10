@@ -11,6 +11,9 @@ import Admin from "./components/Admin";
 import Developer from "./components/Developer";
 import Layout from "./components/Layout";
 
+// persist login
+import PersistLogin from "./components/PersistLogin";
+
 // from other team members
 import LandingPage from "./components/LandingPage";
 
@@ -20,6 +23,7 @@ import Organization from "./components/Organization";
 import LeaveManagement from "./components/LeaveManagement";
 import ProjectManagement from "./components/ProjectManagement";
 import LearningDevelopment from "./components/LearningDevelopment";
+import Users from "./components/Users";
 
 const ROLES = {
   Admin: 1,
@@ -41,17 +45,17 @@ function App() {
         <Route path="unauthorized" element={<Unauthorized />} />
 
         {/* we want to protect these routes */}
+        <Route element={<persistLogin />} />
         <Route element={<RequireAuth />}>
           <Route path="/" element={<LandingPage />} />
           <Route path="admin" element={<Admin />} />
+          <Route path="users" element={<Users />} />
+
           {/* other pages */}
-          <Route path="/orgchart" element={<Organization />} />
-          <Route path="/leavemanagement" element={<LeaveManagement />} />
-          <Route path="/projectmanagement" element={<ProjectManagement />} />
-          <Route
-            path="/learningdevelopment"
-            element={<LearningDevelopment />}
-          />
+          <Route path="orgchart" element={<Organization />} />
+          <Route path="leavemanagement" element={<LeaveManagement />} />
+          <Route path="projectmanagement" element={<ProjectManagement />} />
+          <Route path="learningdevelopment" element={<LearningDevelopment />} />
         </Route>
 
         {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>      

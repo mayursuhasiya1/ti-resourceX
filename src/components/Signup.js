@@ -2,7 +2,8 @@ import React from "react";
 import "../css/Signup.css";
 import { useState, useRef, useEffect } from "react";
 import axios from "../api/axios";
-
+import Header from "./Header";
+import Footer from "./Footer";
 // react-form
 import { useForm } from "react-hook-form";
 
@@ -31,7 +32,7 @@ const Signup = () => {
   const [designation, setDesignation] = useState();
   const [primaryMobile, setPrimaryMobile] = useState("");
   const [alternativeMobile, setAlternativeMobile] = useState("");
-  const [profileImage, setProfileImage] = useState("image");
+  const [profileImage, setProfileImage] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [validMatch, setValidMatch] = useState(false);
@@ -68,6 +69,9 @@ const Signup = () => {
     setValidPwd(pwdRegex.test(password));
     // check pass and confPass matches or not
     const match = password === confirmPassword;
+    if (password.length >= 8) console.log(password);
+    if (confirmPassword.length >= 8) console.log(password);
+
     setValidMatch(match);
   }, [password, confirmPassword]);
 
@@ -78,9 +82,6 @@ const Signup = () => {
   }, [primaryMobile, alternativeMobile]);
 
   useEffect(() => {
-    console.log(password);
-    console.log(confirmPassword);
-
     setErrMsg("");
   }, [
     firstName,
@@ -110,31 +111,26 @@ const Signup = () => {
       setErrMsg("Name or password");
       return;
     }
-
     try {
-      const result = await fetch(
-        "http://103.242.116.207:9000/api/auth/sign-up",
+      const result = await axios.post(
+        REGISTER_URL,
+        JSON.stringify({
+          firstName,
+          lastName,
+          middleName,
+          gender,
+          designation,
+          primaryMobile,
+          alternativeMobile,
+          email,
+          profileImage,
+          password,
+          confirmPassword,
+          roleId,
+        }),
         {
-          method: "POST",
-          body: JSON.stringify({
-            firstName,
-            lastName,
-            middleName,
-            gender,
-            designation,
-            primaryMobile,
-            alternativeMobile,
-            email,
-            profileImage,
-            password,
-            confirmPassword,
-            roleId,
-          }),
-
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
         }
       );
 
@@ -160,9 +156,31 @@ const Signup = () => {
     }
   };
 
-  // handle designation
-  const handleChange = (e) => {
-    this.setState({ selectValue: e.target.value });
+  // handle image
+  const handleChange = async (e) => {
+    const file = e.target.files[0];
+    const base64 = await convertBase64(file);
+    console.log(typeof base64);
+
+    setProfileImage(base64);
+    console.log(profileImage);
+  };
+
+  // convert into base64
+  const convertBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+
+      fileReader.readAsDataURL(file);
+
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
   };
 
   return (
@@ -187,9 +205,9 @@ const Signup = () => {
                 {userRegistered == true ? (
                   <h1 class="mb-8 text-3xl text-center">
                     You are Already Registered with this Email
-                    <a href="./signup">
+                    <a href="./login">
                       <button class="bg-blue-500 text-white font-bold py-2 px-4 border-b-4 border-blue-700 ml-2 mt-2 hover:border-blue-500 rounded">
-                        Sign up
+                        Log In
                       </button>
                     </a>
                   </h1>
@@ -448,6 +466,7 @@ const Signup = () => {
                       placeholder="Alternative Mobile number"
                       onChange={(e) => setAlternativeMobile(e.target.value)}
                     />
+
                     {/* image */}
                     <label
                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
@@ -459,8 +478,10 @@ const Signup = () => {
                       class="block w-full text-sm text-gray-900 bg-gray-50  border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                       id="profileImage"
                       type="file"
+                      onChange={(e) => handleChange(e)}
                     />
                     <br />
+
                     {/* password  */}
                     <input
                       type="password"
@@ -494,7 +515,7 @@ const Signup = () => {
                         validName ? (
                           <p className="text-green-800">1. Valid Name</p>
                         ) : (
-                          <p className="text-red-500">1. Not Valid Name</p>
+                          <p className="text-red-500">1. Invalid Name</p>
                         )
                       ) : (
                         " "
@@ -504,7 +525,7 @@ const Signup = () => {
                         validPwd ? (
                           <p className="text-green-800">2. Valid Password</p>
                         ) : (
-                          <p className="text-red-500">2. Not Valid Password</p>
+                          <p className="text-red-500">2. Invalid Password</p>
                         )
                       ) : (
                         " "

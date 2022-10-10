@@ -1,21 +1,18 @@
 import React from "react";
-// route with authorisation requires this imports
-import { useNavigate, Link } from "react-router-dom";
-import { useContext } from "react";
-import AuthContext from "../context/AuthProvider";
+import { Link } from "react-router-dom";
+import Users from "./Users";
 
 const Admin = () => {
-  const { setAuth } = useContext(AuthContext);
-  const navigate = useNavigate();
-
-  const logout = async () => {
-    // if used in more components, this should be in context
-    // axios to /logout endpoint
-    setAuth({});
-    navigate("/login");
-  };
-
-  return <h1>Welcome Admin..</h1>;
+  return (
+    <section>
+      <h1>Admin page</h1> <br />
+      <Users />
+      <br />
+      <div className="flexGrow">
+        <Link to="/">Home</Link>
+      </div>
+    </section>
+  );
 };
 
 export default Admin;

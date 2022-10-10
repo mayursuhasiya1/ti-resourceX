@@ -1,4 +1,5 @@
 import { useLocation, Navigate, Outlet } from "react-router-dom";
+
 import useAuth from "../hooks/useAuth";
 
 import React from "react";
@@ -9,7 +10,7 @@ const RequireAuth = (allowedRoles) => {
   const location = useLocation();
 
   const email = auth.email;
-  console.log(email);
+  // console.log(email);
 
   return (
     // checking roles and

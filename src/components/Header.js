@@ -20,7 +20,7 @@ const Header = () => {
       {/*scrolling text  */}
       <div id="scroll-container" className="bg-black mb-14">
         <p className="text-center text-lg text-white" id="scroll-text">
-          Your One Stop Employee Management
+          Your One Stop Solution For Employee Management
         </p>
       </div>
     </div>
