@@ -30,21 +30,9 @@ import "../App.css";
 import "../index.css";
 import LeaveManagement from "./LeaveManagement";
 
-//
-const drawerWidth = 240;
+const drawerWidth = 260;
 
 function LandingPage() {
-  const { setAuth } = useAuth();
-
-  const navigate = useNavigate();
-
-  const logout = async () => {
-    // if used in more components, this should be in context
-    // axios to /logout endpoint
-    setAuth({});
-    navigate("/login");
-  };
-
   const { pathname } = useLocation();
   const drawer = (
     <div className="nav">
@@ -102,6 +90,10 @@ function LandingPage() {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
+              background:
+                "linear-gradient(-45deg, #f994a9, #f0755d, #da6353, #fef3f2)",
+              backgroundSize: "400% 400%",
+              animation: "gradient 15s ease infinite;",
             },
           }}
           open
@@ -118,23 +110,16 @@ function LandingPage() {
         }}
       >
         <Toolbar />
-        <div className="pages">
-          <Routes>
-            <Route element={<RequireAuth />}>
-              <Route exact path="/" element={<Home />} />
-              <Route path="/orgchart" element={<Organization />} />
-              <Route path="/leavemanagement" element={<LeaveManagement />} />
-              <Route
-                path="/projectmanagement"
-                element={<ProjectManagement />}
-              />
-              <Route
-                path="/learningdevelopment"
-                element={<LearningDevelopment />}
-              />
-            </Route>
-          </Routes>
-        </div>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/orgchart" element={<Organization />} />
+          <Route path="/leavemanagement" element={<TimeTracker />} />
+          <Route path="/projectmanagement" element={<ProjectManagement />} />
+          <Route
+            path="/learningdevelopment"
+            element={<LearningDevelopment />}
+          />
+        </Routes>
       </Box>
     </Box>
   );

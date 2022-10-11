@@ -228,282 +228,217 @@ const Signup = () => {
       ) : (
         <div>
           {/* header */}
-          {/* <Header/> */}
+          <Header />
 
-          <p
-            ref={errRef} //this will display the error message if any
-            className={errMsg ? "errmsg" : "offscreen"}
-            aria-live="assertive"
-          >
-            {errMsg}
-          </p>
-
-          <div className="mb-6">
-            <form onSubmit={handleSubmit} className="h-0 bg-opacity-0 bg-white">
+          <div className="mt-6">
+            <form
+              onSubmit={handleSubmit}
+              className="h-0 bg-opacity-0 bg-white mt-24 md:mt-0"
+            >
               <div className="bg-grey-lighter min-h-screen flex flex-col">
-                <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-                  <div className="bg-gray-400 px-6 py-8 rounded shadow-md text-black w-full">
+                <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2 md:max-w-4xl">
+                  <div className="bg-gray-400 px-16 py-8 box-border	rounded shadow-xl text-black w-full ">
                     <h1 className="mb-8 text-3xl text-center">Sign up</h1>
-                    <input
-                      type="text"
-                      autoComplete="off"
-                      id="firstName"
-                      ref={userRef}
-                      onChange={(e) => setFirstName(e.target.value)}
-                      required
-                      className="block border border-grey-light w-full p-3 rounded mb-4"
-                      name="firstname"
-                      placeholder="First Name"
-                    />
-                    {/* middle name */}
-                    {/* <p className="asterisk_input">  </p>  */}
-                    <input
-                      type="text"
-                      id="middleName"
-                      autoComplete="off"
-                      required
-                      onChange={(e) => setMiddleName(e.target.value)}
-                      className="block border border-grey-light w-full p-3 rounded mb-4"
-                      name="lastname"
-                      placeholder="Middle Name"
-                    />
-                    <input
-                      type="text"
-                      id="lastName"
-                      autoComplete="off"
-                      required
-                      onChange={(e) => setLastName(e.target.value)}
-                      className="block border border-grey-light w-full p-3 rounded mb-4"
-                      name="lastname"
-                      placeholder="Last Name"
-                    />
-                    <input
-                      type="email"
-                      id="email"
-                      autoComplete="off"
-                      required
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="block border border-grey-light w-full p-3 rounded mb-4"
-                      name="email"
-                      placeholder="Email"
-                    />
+                    {/* name section */}
+                    <div class="flex flex-wrap -mx-14  ">
+                      <div class="w-full md:w-1/3 px-2">
+                        <input
+                          type="text"
+                          autoComplete="off"
+                          id="firstName"
+                          ref={userRef}
+                          onChange={(e) => setFirstName(e.target.value)}
+                          required
+                          className="block border border-grey-light w-full p-3 rounded mb-4"
+                          name="firstname"
+                          placeholder="First Name"
+                        />
+                      </div>
+                      <div class="w-full md:w-1/3 px-2">
+                        <input
+                          type="text"
+                          id="middleName"
+                          autoComplete="off"
+                          required
+                          onChange={(e) => setMiddleName(e.target.value)}
+                          className="block border border-grey-light w-full p-3 rounded mb-4"
+                          name="middleName"
+                          placeholder="Middle Name"
+                        />
+                      </div>
+                      <div class="w-full md:w-1/3 px-2 ">
+                        <input
+                          type="text"
+                          id="lastName"
+                          autoComplete="off"
+                          required
+                          onChange={(e) => setLastName(e.target.value)}
+                          className="block border border-grey-light w-full p-3 rounded mb-4"
+                          name="lastname"
+                          placeholder="Last Name"
+                        />
+                      </div>
+                    </div>
+                    {/* name section ends here */}
 
-                    {/*gender */}
-                    {typeof gender == "undefined" ? (
-                      <p className="text-red-600">Select Gender</p>
-                    ) : (
-                      " "
-                    )}
-                    <select
-                      value={gender}
-                      onChange={(e) => setGender(e.target.value)}
-                      className="form-select appearance-none
-        
-      block
-      w-full
-      px-3
-      py-1.5
-      text-base
-      font-normal
-      text-gray-700
-      bg-white bg-clip-padding bg-no-repeat
-      border border-solid border-gray-300
-      rounded
-      transition
-      ease-in-out
-      m-0
-      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none mb-4"
-                      aria-label="Default select example"
-                      id="gender"
-                    >
-                      <option disabled selected>
-                        Gender
-                      </option>
-                      <option value="Male">Male</option>
-                      <option value="Female">Female</option>
-                      <option value="Other">Other</option>
-                    </select>
+                    {/* name section */}
+                    <div class="flex flex-wrap -mx-14 ">
+                      <div class="w-full md:w-1/3 px-2">
+                        <input
+                          ref={userRef}
+                          type="email"
+                          id="email"
+                          autoComplete="off"
+                          required
+                          onChange={(e) => setEmail(e.target.value)}
+                          className="block border border-grey-light w-full p-3 rounded mb-4"
+                          name="email"
+                          placeholder="Email"
+                        />
+                      </div>
+                      <div class="w-full md:w-1/3 px-2">
+                        <input
+                          type="tel"
+                          required
+                          autoComplete="off"
+                          className="block border border-grey-light w-full p-3 rounded mb-4"
+                          id="primaryMobile"
+                          placeholder="Mobile number"
+                          onChange={(e) => setPrimaryMobile(e.target.value)}
+                        />
+                      </div>
+                      <div class="w-full md:w-1/3 px-2 ">
+                        <input
+                          type="tel"
+                          autoComplete="off"
+                          className="block border border-grey-light w-full p-3  rounded mb-4"
+                          id="alternativeMobile"
+                          placeholder="Alternative Mobile number"
+                          onChange={(e) => setAlternativeMobile(e.target.value)}
+                        />
+                      </div>
+                    </div>
+                    {/* name section ends here */}
 
-                    {/* role id */}
-                    {typeof roleId == "undefined" ? (
-                      <p className="text-red-600">Select Role ID</p>
-                    ) : (
-                      " "
-                    )}
-                    <select
-                      required
-                      value={roleId}
-                      onChange={(e) => setRoleId(e.target.value)}
-                      className="form-select appearance-none    
-      block
-      w-full
-      px-3
-      py-1.5
-      text-base
-      font-normal
-      text-gray-700
-      bg-white bg-clip-padding bg-no-repeat
-      border border-solid border-gray-300
-      rounded
-      transition
-      ease-in-out
-      m-0
-      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none mb-4"
-                      aria-label="Default select example"
-                      id="roleId"
-                    >
-                      <option disabled selected>
-                        Role ID
-                      </option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                    </select>
-                    {/* designation */}
-                    {typeof designation == "undefined" ? (
-                      <p className="text-red-600">Select Designation</p>
-                    ) : (
-                      " "
-                    )}
+                    {/* name section */}
+                    <div class="flex flex-wrap -mx-14 ">
+                      <div class="w-full md:w-1/3 px-2">
+                        {/*gender */}
+                        {/* {typeof gender == "undefined" ? (
+                          <p className="text-red-600">Select Gender</p>
+                        ) : (
+                          " "
+                        )} */}
+                        <select
+                          value={gender}
+                          ref={userRef}
+                          onChange={(e) => setGender(e.target.value)}
+                          className="block border border-grey-light w-full p-3 rounded mb-4"
+                          aria-label="Default select example"
+                          id="gender"
+                        >
+                          <option disabled selected>
+                            Gender
+                          </option>
+                          <option value="Male">Male</option>
+                          <option value="Female">Female</option>
+                          <option value="Other">Other</option>
+                        </select>
+                      </div>
+                      <div class="w-full md:w-1/3 px-2">
+                        {/* role id */}
+                        {/* {typeof roleId == "undefined" ? (
+                          <p className="text-red-600">Select Role ID</p>
+                        ) : (
+                          " "
+                        )} */}
+                        <select
+                          required
+                          value={roleId}
+                          onChange={(e) => setRoleId(e.target.value)}
+                          className="block border border-grey-light w-full p-3 rounded mb-4"
+                          aria-label="Default select example"
+                          id="roleId"
+                        >
+                          <option disabled selected>
+                            Role ID
+                          </option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                        </select>
+                      </div>
+                      <div class="w-full md:w-1/3 px-2 ">
+                        {/* designation */}
+                        {/* {typeof designation == "undefined" ? (
+                          <p className="text-red-600">Select Designation</p>
+                        ) : (
+                          " "
+                        )} */}
 
-                    <select
-                      onChange={(e) => setDesignation(e.target.value)}
-                      className="form-select appearance-none
-      id='designation'  
-      block
-      w-full
-      px-3
-      py-1.5
-      text-base
-      font-normal
-      text-gray-700
-      bg-white bg-clip-padding bg-no-repeat
-      border border-solid border-gray-300
-      rounded
-      transition
-      ease-in-out
-      m-0
-      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none mb-4"
-                      aria-label="Default select example"
-                      id="designation"
-                    >
-                      <option disabled selected>
-                        Designation
-                      </option>
-                      <option value="Developer">Developer</option>
-                      <option value="Ui developer">UI Develooper</option>
-                      <option value="manager">Manager</option>
-                    </select>
+                        <select
+                          onChange={(e) => setDesignation(e.target.value)}
+                          className="block border border-grey-light w-full p-3 rounded mb-4"
+                          aria-label="Default select example"
+                          id="designation"
+                        >
+                          <option disabled selected>
+                            Designation
+                          </option>
+                          <option value="Developer">Developer</option>
+                          <option value="Ui developer">UI Develooper</option>
+                          <option value="manager">Manager</option>
+                        </select>
+                      </div>
+                    </div>
+                    {/* name section ends here */}
 
-                    {/* mobile number */}
-                    {primaryMobile == "" ? (
-                      <p className="text-red-600">Enter Mobile Number</p>
-                    ) : validMob ? (
-                      " "
-                    ) : (
-                      <p className="text-red-600">Enter Valid Mobile Number</p>
-                    )}
+                    {/* name section */}
+                    <div class="flex flex-wrap -mx-14 ">
+                      <div class="w-full md:w-1/3 px-2">
+                        {/* image */}
+                        {/* <label
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          for="file_input"
+                        >
+                          Upload Photo
+                        </label> */}
+                        <input
+                          className="block border border-grey-light w-full p-3 rounded mb-4"
+                          id="profileImage"
+                          type="file"
+                          onChange={(e) => handleChange(e)}
+                        />
+                      </div>
+                      <div class="w-full md:w-1/3 px-2">
+                        {/* password  */}
+                        <input
+                          type="password"
+                          id="password"
+                          onChange={(e) => setPassword(e.target.value)}
+                          autoComplete="off"
+                          required
+                          className="block border border-grey-light w-full p-3 rounded mb-4"
+                          name="password"
+                          placeholder="Password"
+                        />
+                        {/*  */}
+                      </div>
+                      <div class="w-full md:w-1/3 px-2 ">
+                        <input
+                          type="password"
+                          required
+                          autoComplete="off"
+                          id="confirmPassword"
+                          className="block border border-grey-light w-full p-3 rounded mb-4"
+                          onChange={(e) => setConfirmPassword(e.target.value)}
+                          name="confirm_password"
+                          placeholder="Confirm Password"
+                        />
+                      </div>
+                    </div>
+                    {/* name section ends here */}
 
-                    <input
-                      type="tel"
-                      required
-                      autoComplete="off"
-                      className="
-        form-control
-        block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-       mb-4"
-                      id="primaryMobile"
-                      placeholder="Mobile number"
-                      onChange={(e) => setPrimaryMobile(e.target.value)}
-                    />
-
-                    {/* alternative mobile number */}
-                    {alternativeMobile == "" ? (
-                      <p className="text-black">
-                        Enter Alternative Mobile Number
-                      </p>
-                    ) : validAlternateMob ? (
-                      " "
-                    ) : (
-                      <p className="text-red">
-                        Enter Valid Alternative Mobile Number
-                      </p>
-                    )}
-                    <input
-                      type="tel"
-                      autoComplete="off"
-                      className="
-        form-control
-        block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-       mb-4"
-                      id="alternativeMobile"
-                      placeholder="Alternative Mobile number"
-                      onChange={(e) => setAlternativeMobile(e.target.value)}
-                    />
-
-                    {/* image */}
-                    <label
-                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                      for="file_input"
-                    >
-                      Upload Photo
-                    </label>
-                    <input
-                      class="block w-full text-sm text-gray-900 bg-gray-50  border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                      id="profileImage"
-                      type="file"
-                      onChange={(e) => handleChange(e)}
-                    />
-                    <br />
-
-                    {/* password  */}
-                    <input
-                      type="password"
-                      id="password"
-                      onChange={(e) => setPassword(e.target.value)}
-                      autoComplete="off"
-                      required
-                      className="block border border-grey-light w-full p-3 rounded mb-4"
-                      name="password"
-                      placeholder="Password"
-                    />
-                    {/*  */}
-                    <input
-                      type="password"
-                      required
-                      autoComplete="off"
-                      id="confirmPassword"
-                      className="block border border-grey-light w-full p-3 rounded mb-4"
-                      onChange={(e) => setConfirmPassword(e.target.value)}
-                      name="confirm_password"
-                      placeholder="Confirm Password"
-                    />
                     {/* error message */}
 
                     <b>
@@ -513,9 +448,9 @@ const Signup = () => {
                       middleName.length > 0 &&
                       lastName.length > 0 ? (
                         validName ? (
-                          <p className="text-green-800">1. Valid Name</p>
+                          ""
                         ) : (
-                          <p className="text-red-500">1. Invalid Name</p>
+                          <p className="text-red-500">Invalid Name</p>
                         )
                       ) : (
                         " "
@@ -523,9 +458,9 @@ const Signup = () => {
                       {/* for validation */}
                       {password.length > 0 && confirmPassword.length > 0 ? (
                         validPwd ? (
-                          <p className="text-green-800">2. Valid Password</p>
+                          ""
                         ) : (
-                          <p className="text-red-500">2. Invalid Password</p>
+                          <p className="text-red-500">Invalid Password</p>
                         )
                       ) : (
                         " "
@@ -533,17 +468,26 @@ const Signup = () => {
                       {/* for match */}
                       {password.length > 0 && confirmPassword.length > 0 ? (
                         validMatch ? (
-                          <p className="text-green-800">3. Password Matched</p>
+                          ""
                         ) : (
-                          <p className="text-red-500">
-                            3. Password Not Matched
-                          </p>
+                          <p className="text-red-500">Password Not Matched</p>
                         )
                       ) : (
                         " "
                       )}
+
+                      {/* for mobile number */}
+                      {primaryMobile == "" ? (
+                        <p className="text-red-500 ">Enter Mobile Number</p>
+                      ) : validMob ? (
+                        " "
+                      ) : (
+                        <p className="text-red-500 ">
+                          Enter Valid Mobile Number
+                        </p>
+                      )}
                     </b>
-                    <br />
+
                     {/* submit button */}
                     <button
                       type="submit"
@@ -594,8 +538,9 @@ const Signup = () => {
               </div>
             </form>
           </div>
+          {/* footer */}
 
-          {/* <Footer/> */}
+          <Footer />
         </div>
       )}
     </>
