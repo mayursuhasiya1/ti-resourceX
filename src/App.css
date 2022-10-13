@@ -1,0 +1,26 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, sans-serif;
+}
+.App {
+  text-align: center;
+}
+
+.container {
+  display: "block";
+  width: "100%";
+}
+
+.navbar-style {
+  width: 20%;
+  float: left;
+  display: inline-block;
+}
+
+.main-content {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}

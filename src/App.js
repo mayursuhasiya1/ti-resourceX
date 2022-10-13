@@ -1,41 +1,78 @@
-
 // import  from './landingPage'
-import Login from './Login';
-import Dashboard from './Dashboard';
-import NotFound from "./NotFound"
-import { BrowserRouter as Router, Route, Switch  } from 'react-router-dom';
-import React, { useState } from 'react';
+import Login from "./components/Login";
+import Dashboard from "./components/Dashboard";
+import NotFound from "./components/NotFound";
+import Home from "./components/Home";
+import Signup from "./components/Signup";
+import Register from "./components/Register";
+import Unauthorized from "./components/Unauthorized";
+import RequireAuth from "./components/RequireAuth";
+import Admin from "./components/Admin";
+import Developer from "./components/Developer";
+import Layout from "./components/Layout";
 
+// persist login
+import PersistLogin from "./components/PersistLogin";
 
-function setToken(userToken) {
-  sessionStorage.setItem('token', JSON.stringify(userToken));
-}
+// from other team members
+import LandingPage from "./components/LandingPage";
 
-function getToken() {
-  const tokenString = sessionStorage.getItem('token');
-  const userToken = JSON.parse(tokenString);
-  return userToken?.token
-}
+import { Route, Routes } from "react-router-dom";
+import React, { useState } from "react";
+import Organization from "./components/Organization";
+import LeaveManagement from "./components/LeaveManagement";
+import ProjectManagement from "./components/ProjectManagement";
+import LearningDevelopment from "./components/LearningDevelopment";
+import Users from "./components/Users";
+
+const ROLES = {
+  Admin: 1,
+  Employee: 2,
+  Developer: 3,
+};
 
 function App() {
-  const token = getToken();
+  // roleId : 1 => admin
+  // roleId : 2 => Employee
+  // roleId : 3 => Developer
 
   return (
-    <div className="wrapper">
-      <Router>
-        <Switch>
-        <Route path="/">
-            <Login />
-          </Route>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
-          <Route path="*">
-            <NotFound />
-          </Route>
-        </Switch>
-      </Router>
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        {/* public routes */}
+        <Route path="login" element={<Login />} />
+        <Route path="signup" element={<Signup />} />
+        <Route path="unauthorized" element={<Unauthorized />} />
+
+        {/* we want to protect these routes */}
+        <Route element={<persistLogin />} />
+        <Route element={<RequireAuth />}>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="admin" element={<Admin />} />
+          <Route path="users" element={<Users />} />
+
+          {/* other pages */}
+          <Route path="orgchart" element={<Organization />} />
+          <Route path="leavemanagement" element={<LeaveManagement />} />
+          <Route path="projectmanagement" element={<ProjectManagement />} />
+          <Route path="learningdevelopment" element={<LearningDevelopment />} />
+        </Route>
+
+        {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>      
+          <Route path="/" element={<Home />} />
+          <Route path="admin" element={<Admin />} />
+        </Route>
+
+
+        <Route element={<RequireAuth allowedRoles={[ROLES.Developer]} />}>
+          <Route path="/" element={<Home />} />
+          <Route path="developer" element={<Developer />} />
+        </Route> */}
+
+        {/* catch all */}
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 }
 
