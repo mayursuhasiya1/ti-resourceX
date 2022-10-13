@@ -306,11 +306,11 @@ const Signup = () => {
                     {/* role id */}
                     <div class="flex flex-wrap -mx-2  ">
                       <div class="w-full md:w-1/2 px-2 ">
-                        {typeof roleId == "undefined" ? (
+                        {/* {typeof roleId == "undefined" ? (
                           <p className="text-red-600">Select Role ID</p>
                         ) : (
                           " "
-                        )}
+                        )} */}
                         <select
                           required
                           value={roleId}
@@ -343,11 +343,11 @@ const Signup = () => {
                       </div>
                       {/* designation */}
                       <div class="w-full md:w-1/2 px-2 ">
-                        {typeof designation == "undefined" ? (
+                        {/* {typeof designation == "undefined" ? (
                           <p className="text-red-600">Select Designation</p>
                         ) : (
                           " "
-                        )}
+                        )} */}
 
                         <select
                           onChange={(e) => setDesignation(e.target.value)}
@@ -383,7 +383,7 @@ const Signup = () => {
                     {/* mobile number */}
                     <div class="flex flex-wrap -mx-2  ">
                       <div class="w-full md:w-1/2 px-2 ">
-                        {primaryMobile == "" ? (
+                        {/* {primaryMobile == "" ? (
                           <p className="text-red-600">Enter Mobile Number</p>
                         ) : validMob ? (
                           " "
@@ -391,7 +391,7 @@ const Signup = () => {
                           <p className="text-red-600">
                             Enter Valid Mobile Number
                           </p>
-                        )}
+                        )} */}
 
                         <input
                           type="tel"
@@ -421,7 +421,7 @@ const Signup = () => {
                       </div>
                       {/* alternative mobile number */}
                       <div class="w-full md:w-1/2 px-2 ">
-                        {alternativeMobile == "" ? (
+                        {/* {alternativeMobile == "" ? (
                           <p className="text-black">
                             Enter Alternative Mobile Number
                           </p>
@@ -431,7 +431,7 @@ const Signup = () => {
                           <p className="text-red">
                             Enter Valid Alternative Mobile Number
                           </p>
-                        )}
+                        )} */}
                         <input
                           type="tel"
                           autoComplete="off"
@@ -461,11 +461,11 @@ const Signup = () => {
                     {/*gender */}
                     <div class="flex flex-wrap -mx-2  ">
                       <div class="w-full md:w-1/2 px-2 ">
-                        {typeof gender == "undefined" ? (
+                        {/* {typeof gender == "undefined" ? (
                           <p className="text-red-600">Select Gender</p>
                         ) : (
                           " "
-                        )}
+                        )} */}
                         <select
                           value={gender}
                           onChange={(e) => setGender(e.target.value)}
@@ -498,12 +498,12 @@ const Signup = () => {
                       </div>
                       {/* image */}
                       <div class="w-full md:w-1/2 px-2 ">
-                        <label
+                        {/* <label
                           class="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-300 "
                           for="file_input"
                         >
                           Upload Photo
-                        </label>
+                        </label> */}
                         <input
                           class="block w-full text-sm rounded text-gray-900 bg-gray-50 px-3 py-1.5
                       rounded border border-gray-300 cursor-pointer dark:text-gray-400 
