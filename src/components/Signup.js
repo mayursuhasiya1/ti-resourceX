@@ -184,14 +184,12 @@ const Signup = () => {
   };
 
   return (
-    // <!-- component -->
-
-    <>
+    <section>
       {success ? (
-        <section>
+        <section className="">
           <div class="bg-grey-lighter min-h-screen flex flex-col">
             <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-              <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+              <div class="bg-cyan-500 px-6 py-8 rounded shadow-md text-black w-full">
                 {/* <h1 class="mb-8 text-3xl text-center">
                   Successfully Signed up!
                 </h1>
@@ -226,324 +224,316 @@ const Signup = () => {
           </div>
         </section>
       ) : (
-        <div>
+        <section>
           {/* header */}
           <Header />
-
-          <div className="mt-6">
-            <form
-              onSubmit={handleSubmit}
-              className="h-0 bg-opacity-0 bg-white mt-24 md:mt-0"
-            >
-              <div className="bg-grey-lighter min-h-screen flex flex-col">
-                <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2 md:max-w-4xl">
-                  <div className="bg-gray-400 px-16 py-8 box-border	rounded shadow-xl text-black w-full ">
-                    <h1 className="mb-8 text-3xl text-center">Sign up</h1>
-                    {/* name section */}
-                    <div class="flex flex-wrap -mx-14  ">
-                      <div class="w-full md:w-1/3 px-2">
-                        <input
-                          type="text"
-                          autoComplete="off"
-                          id="firstName"
-                          ref={userRef}
-                          onChange={(e) => setFirstName(e.target.value)}
-                          required
-                          className="block border border-grey-light w-full p-3 rounded mb-4"
-                          name="firstname"
-                          placeholder="First Name"
-                        />
-                      </div>
-                      <div class="w-full md:w-1/3 px-2">
-                        <input
-                          type="text"
-                          id="middleName"
-                          autoComplete="off"
-                          required
-                          onChange={(e) => setMiddleName(e.target.value)}
-                          className="block border border-grey-light w-full p-3 rounded mb-4"
-                          name="middleName"
-                          placeholder="Middle Name"
-                        />
-                      </div>
-                      <div class="w-full md:w-1/3 px-2 ">
-                        <input
-                          type="text"
-                          id="lastName"
-                          autoComplete="off"
-                          required
-                          onChange={(e) => setLastName(e.target.value)}
-                          className="block border border-grey-light w-full p-3 rounded mb-4"
-                          name="lastname"
-                          placeholder="Last Name"
-                        />
-                      </div>
+          <div className="">
+            <form onSubmit={handleSubmit} className="mt-24 md:mt-32">
+              <div className="container max-w-sm mx-auto items-center justify-center px-2 md:max-w-4xl">
+                <div className="bg-gray-500 px-16 py-8 box-border	rounded shadow-xl text-black w-full ">
+                  <h1 className="mb-8 text-3xl text-center">Sign up</h1>
+                  {/* name section */}
+                  <div class="flex flex-wrap -mx-14  ">
+                    <div class="w-full md:w-1/3 px-2">
+                      <input
+                        type="text"
+                        autoComplete="off"
+                        id="firstName"
+                        ref={userRef}
+                        onChange={(e) => setFirstName(e.target.value)}
+                        required
+                        className="block border border-grey-light w-full p-3 rounded mb-4"
+                        name="firstname"
+                        placeholder="First Name"
+                      />
                     </div>
-                    {/* name section ends here */}
-
-                    {/* name section */}
-                    <div class="flex flex-wrap -mx-14 ">
-                      <div class="w-full md:w-1/3 px-2">
-                        <input
-                          ref={userRef}
-                          type="email"
-                          id="email"
-                          autoComplete="off"
-                          required
-                          onChange={(e) => setEmail(e.target.value)}
-                          className="block border border-grey-light w-full p-3 rounded mb-4"
-                          name="email"
-                          placeholder="Email"
-                        />
-                      </div>
-                      <div class="w-full md:w-1/3 px-2">
-                        <input
-                          type="tel"
-                          required
-                          autoComplete="off"
-                          className="block border border-grey-light w-full p-3 rounded mb-4"
-                          id="primaryMobile"
-                          placeholder="Mobile number"
-                          onChange={(e) => setPrimaryMobile(e.target.value)}
-                        />
-                      </div>
-                      <div class="w-full md:w-1/3 px-2 ">
-                        <input
-                          type="tel"
-                          autoComplete="off"
-                          className="block border border-grey-light w-full p-3  rounded mb-4"
-                          id="alternativeMobile"
-                          placeholder="Alternative Mobile number"
-                          onChange={(e) => setAlternativeMobile(e.target.value)}
-                        />
-                      </div>
+                    <div class="w-full md:w-1/3 px-2">
+                      <input
+                        type="text"
+                        id="middleName"
+                        autoComplete="off"
+                        required
+                        onChange={(e) => setMiddleName(e.target.value)}
+                        className="block border border-grey-light w-full p-3 rounded mb-4"
+                        name="middleName"
+                        placeholder="Middle Name"
+                      />
                     </div>
-                    {/* name section ends here */}
+                    <div class="w-full md:w-1/3 px-2 ">
+                      <input
+                        type="text"
+                        id="lastName"
+                        autoComplete="off"
+                        required
+                        onChange={(e) => setLastName(e.target.value)}
+                        className="block border border-grey-light w-full p-3 rounded mb-4"
+                        name="lastname"
+                        placeholder="Last Name"
+                      />
+                    </div>
+                  </div>
+                  {/* name section ends here */}
 
-                    {/* name section */}
-                    <div class="flex flex-wrap -mx-14 ">
-                      <div class="w-full md:w-1/3 px-2">
-                        {/*gender */}
-                        {/* {typeof gender == "undefined" ? (
+                  {/* name section */}
+                  <div class="flex flex-wrap -mx-14 ">
+                    <div class="w-full md:w-1/3 px-2">
+                      <input
+                        ref={userRef}
+                        type="email"
+                        id="email"
+                        autoComplete="off"
+                        required
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="block border border-grey-light w-full p-3 rounded mb-4"
+                        name="email"
+                        placeholder="Email"
+                      />
+                    </div>
+                    <div class="w-full md:w-1/3 px-2">
+                      <input
+                        type="tel"
+                        required
+                        autoComplete="off"
+                        className="block border border-grey-light w-full p-3 rounded mb-4"
+                        id="primaryMobile"
+                        placeholder="Mobile number"
+                        onChange={(e) => setPrimaryMobile(e.target.value)}
+                      />
+                    </div>
+                    <div class="w-full md:w-1/3 px-2 ">
+                      <input
+                        type="tel"
+                        autoComplete="off"
+                        className="block border border-grey-light w-full p-3  rounded mb-4"
+                        id="alternativeMobile"
+                        placeholder="Alternative Mobile number"
+                        onChange={(e) => setAlternativeMobile(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                  {/* name section ends here */}
+
+                  {/* name section */}
+                  <div class="flex flex-wrap -mx-14 ">
+                    <div class="w-full md:w-1/3 px-2">
+                      {/*gender */}
+                      {/* {typeof gender == "undefined" ? (
                           <p className="text-red-600">Select Gender</p>
                         ) : (
                           " "
                         )} */}
-                        <select
-                          value={gender}
-                          ref={userRef}
-                          onChange={(e) => setGender(e.target.value)}
-                          className="block border border-grey-light w-full p-3 rounded mb-4"
-                          aria-label="Default select example"
-                          id="gender"
-                        >
-                          <option disabled selected>
-                            Gender
-                          </option>
-                          <option value="Male">Male</option>
-                          <option value="Female">Female</option>
-                          <option value="Other">Other</option>
-                        </select>
-                      </div>
-                      <div class="w-full md:w-1/3 px-2">
-                        {/* role id */}
-                        {/* {typeof roleId == "undefined" ? (
+                      <select
+                        value={gender}
+                        ref={userRef}
+                        onChange={(e) => setGender(e.target.value)}
+                        className="block border border-grey-light w-full p-3 rounded mb-4"
+                        aria-label="Default select example"
+                        id="gender"
+                      >
+                        <option disabled selected>
+                          Gender
+                        </option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                      </select>
+                    </div>
+                    <div class="w-full md:w-1/3 px-2">
+                      {/* role id */}
+                      {/* {typeof roleId == "undefined" ? (
                           <p className="text-red-600">Select Role ID</p>
                         ) : (
                           " "
                         )} */}
-                        <select
-                          required
-                          value={roleId}
-                          onChange={(e) => setRoleId(e.target.value)}
-                          className="block border border-grey-light w-full p-3 rounded mb-4"
-                          aria-label="Default select example"
-                          id="roleId"
-                        >
-                          <option disabled selected>
-                            Role ID
-                          </option>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                        </select>
-                      </div>
-                      <div class="w-full md:w-1/3 px-2 ">
-                        {/* designation */}
-                        {/* {typeof designation == "undefined" ? (
+                      <select
+                        required
+                        value={roleId}
+                        onChange={(e) => setRoleId(e.target.value)}
+                        className="block border border-grey-light w-full p-3 rounded mb-4"
+                        aria-label="Default select example"
+                        id="roleId"
+                      >
+                        <option disabled selected>
+                          Role ID
+                        </option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                      </select>
+                    </div>
+                    <div class="w-full md:w-1/3 px-2 ">
+                      {/* designation */}
+                      {/* {typeof designation == "undefined" ? (
                           <p className="text-red-600">Select Designation</p>
                         ) : (
                           " "
                         )} */}
 
-                        <select
-                          onChange={(e) => setDesignation(e.target.value)}
-                          className="block border border-grey-light w-full p-3 rounded mb-4"
-                          aria-label="Default select example"
-                          id="designation"
-                        >
-                          <option disabled selected>
-                            Designation
-                          </option>
-                          <option value="Developer">Developer</option>
-                          <option value="Ui developer">UI Develooper</option>
-                          <option value="manager">Manager</option>
-                        </select>
-                      </div>
+                      <select
+                        onChange={(e) => setDesignation(e.target.value)}
+                        className="block border border-grey-light w-full p-3 rounded mb-4"
+                        aria-label="Default select example"
+                        id="designation"
+                      >
+                        <option disabled selected>
+                          Designation
+                        </option>
+                        <option value="Developer">Developer</option>
+                        <option value="Ui developer">UI Develooper</option>
+                        <option value="manager">Manager</option>
+                      </select>
                     </div>
-                    {/* name section ends here */}
+                  </div>
+                  {/* name section ends here */}
 
-                    {/* name section */}
-                    <div class="flex flex-wrap -mx-14 ">
-                      <div class="w-full md:w-1/3 px-2">
-                        {/* image */}
-                        {/* <label
+                  {/* name section */}
+                  <div class="flex flex-wrap -mx-14 ">
+                    <div class="w-full md:w-1/3 px-2">
+                      {/* image */}
+                      {/* <label
                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                           for="file_input"
                         >
                           Upload Photo
                         </label> */}
-                        <input
-                          className="block border border-grey-light w-full p-3 rounded mb-4"
-                          id="profileImage"
-                          type="file"
-                          onChange={(e) => handleChange(e)}
-                        />
-                      </div>
-                      <div class="w-full md:w-1/3 px-2">
-                        {/* password  */}
-                        <input
-                          type="password"
-                          id="password"
-                          onChange={(e) => setPassword(e.target.value)}
-                          autoComplete="off"
-                          required
-                          className="block border border-grey-light w-full p-3 rounded mb-4"
-                          name="password"
-                          placeholder="Password"
-                        />
-                        {/*  */}
-                      </div>
-                      <div class="w-full md:w-1/3 px-2 ">
-                        <input
-                          type="password"
-                          required
-                          autoComplete="off"
-                          id="confirmPassword"
-                          className="block border border-grey-light w-full p-3 rounded mb-4"
-                          onChange={(e) => setConfirmPassword(e.target.value)}
-                          name="confirm_password"
-                          placeholder="Confirm Password"
-                        />
-                      </div>
+                      <input
+                        className="block border border-grey-light w-full p-3 rounded mb-4"
+                        id="profileImage"
+                        type="file"
+                        onChange={(e) => handleChange(e)}
+                      />
                     </div>
-                    {/* name section ends here */}
+                    <div class="w-full md:w-1/3 px-2">
+                      {/* password  */}
+                      <input
+                        type="password"
+                        id="password"
+                        onChange={(e) => setPassword(e.target.value)}
+                        autoComplete="off"
+                        required
+                        className="block border border-grey-light w-full p-3 rounded mb-4"
+                        name="password"
+                        placeholder="Password"
+                      />
+                      {/*  */}
+                    </div>
+                    <div class="w-full md:w-1/3 px-2 ">
+                      <input
+                        type="password"
+                        required
+                        autoComplete="off"
+                        id="confirmPassword"
+                        className="block border border-grey-light w-full p-3 rounded mb-4"
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        name="confirm_password"
+                        placeholder="Confirm Password"
+                      />
+                    </div>
+                  </div>
+                  {/* name section ends here */}
 
-                    {/* error message */}
+                  {/* error message */}
 
-                    <b>
-                      {/* for name */}
+                  <b>
+                    {/* for name */}
 
-                      {firstName.length > 0 &&
-                      middleName.length > 0 &&
-                      lastName.length > 0 ? (
-                        validName ? (
-                          ""
-                        ) : (
-                          <p className="text-red-500">Invalid Name</p>
-                        )
+                    {firstName.length > 0 &&
+                    middleName.length > 0 &&
+                    lastName.length > 0 ? (
+                      validName ? (
+                        ""
                       ) : (
-                        " "
-                      )}
-                      {/* for validation */}
-                      {password.length > 0 && confirmPassword.length > 0 ? (
-                        validPwd ? (
-                          ""
-                        ) : (
-                          <p className="text-red-500">Invalid Password</p>
-                        )
+                        <p className="text-red-500">Invalid Name</p>
+                      )
+                    ) : (
+                      " "
+                    )}
+                    {/* for validation */}
+                    {password.length > 0 && confirmPassword.length > 0 ? (
+                      validPwd ? (
+                        ""
                       ) : (
-                        " "
-                      )}
-                      {/* for match */}
-                      {password.length > 0 && confirmPassword.length > 0 ? (
-                        validMatch ? (
-                          ""
-                        ) : (
-                          <p className="text-red-500">Password Not Matched</p>
-                        )
+                        <p className="text-red-500">Invalid Password</p>
+                      )
+                    ) : (
+                      " "
+                    )}
+                    {/* for match */}
+                    {password.length > 0 && confirmPassword.length > 0 ? (
+                      validMatch ? (
+                        ""
                       ) : (
-                        " "
-                      )}
+                        <p className="text-red-500">Password Not Matched</p>
+                      )
+                    ) : (
+                      " "
+                    )}
 
-                      {/* for mobile number */}
-                      {primaryMobile == "" ? (
-                        <p className="text-red-500 ">Enter Mobile Number</p>
-                      ) : validMob ? (
-                        " "
-                      ) : (
-                        <p className="text-red-500 ">
-                          Enter Valid Mobile Number
-                        </p>
-                      )}
-                    </b>
+                    {/* for mobile number */}
+                    {primaryMobile == "" ? (
+                      <p className="text-red-500 ">Enter Mobile Number</p>
+                    ) : validMob ? (
+                      " "
+                    ) : (
+                      <p className="text-red-500 ">Enter Valid Mobile Number</p>
+                    )}
+                  </b>
 
-                    {/* submit button */}
-                    <button
-                      type="submit"
-                      disabled={
-                        (alternativeMobile != "" && !validAlternateMob) ||
-                        !validMob ||
-                        typeof designation == "undefined" ||
-                        typeof gender == "undefined" ||
-                        typeof roleId == "undefined" ||
-                        !validName ||
-                        !validPwd ||
-                        !validMatch
-                          ? true
-                          : false
-                      }
-                      className="w-full text-center py-3 rounded bg-blue-600 text-white hover:bg-blue-800 focus:outline-none my-1"
+                  {/* submit button */}
+                  <button
+                    type="submit"
+                    disabled={
+                      (alternativeMobile != "" && !validAlternateMob) ||
+                      !validMob ||
+                      typeof designation == "undefined" ||
+                      typeof gender == "undefined" ||
+                      typeof roleId == "undefined" ||
+                      !validName ||
+                      !validPwd ||
+                      !validMatch
+                        ? true
+                        : false
+                    }
+                    className="w-full text-center py-3 rounded bg-blue-600 text-white hover:bg-blue-800 focus:outline-none my-1"
+                  >
+                    Create Account
+                  </button>
+                  <div className="text-center text-sm text-grey-dark mt-4">
+                    By signing up, you agree to the
+                    <a
+                      className="no-underline border-b border-grey-dark text-grey-dark"
+                      href="#"
                     >
-                      Create Account
-                    </button>
-                    <div className="text-center text-sm text-grey-dark mt-4">
-                      By signing up, you agree to the
-                      <a
-                        className="no-underline border-b border-grey-dark text-grey-dark"
-                        href="#"
-                      >
-                        Terms of Service
-                      </a>{" "}
-                      and
-                      <a
-                        className="no-underline border-b border-grey-dark text-grey-dark"
-                        href="#"
-                      >
-                        Privacy Policy
-                      </a>
-                    </div>
-                    <div className="text-grey-dark mt-6 ml-6">
-                      Already have an account?
-                      <a
-                        className="no-underline border-b border-blue text-blue"
-                        href="../"
-                      >
-                        Log in
-                      </a>
-                      .
-                    </div>
+                      Terms of Service
+                    </a>{" "}
+                    and
+                    <a
+                      className="no-underline border-b border-grey-dark text-grey-dark"
+                      href="#"
+                    >
+                      Privacy Policy
+                    </a>
+                  </div>
+                  <div className="text-grey-dark mt-6 ml-6">
+                    Already have an account?
+                    <a
+                      className="no-underline border-b border-blue text-blue"
+                      href="../"
+                    >
+                      Log in
+                    </a>
+                    .
                   </div>
                 </div>
               </div>
+              <Footer />
             </form>
-          </div>
-          {/* footer */}
 
-          <Footer />
-        </div>
+            {/* footer */}
+          </div>
+        </section>
       )}
-    </>
+    </section>
   );
 };
 

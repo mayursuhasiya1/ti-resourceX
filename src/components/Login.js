@@ -99,7 +99,7 @@ const Login = () => {
   // useEffect(() => {}, [persist]);
 
   return (
-    <div>
+    <div className="gradient-colors">
       {/* header */}
 
       <Header />
@@ -107,7 +107,7 @@ const Login = () => {
       {/* logo and box */}
 
       <div className="box">
-        <form autoComplete="off" onSubmit={handleSubmit}>
+        <form autoComplete="off" onSubmit={handleSubmit} className="login-box">
           <h2 className="text-2xl"> Sign in</h2>
 
           <div class="inputBox">

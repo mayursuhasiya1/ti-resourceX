@@ -142,9 +142,7 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-body {
-  background-color: #7e9cbb;
-}
+
 
 .box {
   margin: auto;
@@ -189,10 +187,10 @@ body {
   }
 }
 
-form {
+.login-box {
   position: absolute;
   inset: 2px;
-  background: #28292d;
+  background: #18181a;
   padding: 50px 40px;
   border-radius: 8px;
   z-index: 2;
@@ -395,3 +393,13 @@ input[type="submit"]:active {
 .google-btn:active {
   background: #1669f2;
 }
+
+/* for gradient colors */
+
+.gradient-colors
+{
+  background: linear-gradient(-45deg, #c54d29, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 5s ease infinite;
+}
+
